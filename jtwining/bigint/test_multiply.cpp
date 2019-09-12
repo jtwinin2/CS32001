@@ -187,5 +187,68 @@ int main () {
     
     //Add test cases as needed.
 
+    {
+      //------------------------------------------------------
+      // Setup fixture
+      bigint left(5794);
+      bigint right(568);
+      bigint result;
+
+      // Test
+      result = left * right;
+
+      // Verify
+      assert(left   == 5794);
+      assert(right  == 568);
+      assert(result == 3290992);
+    }
+    {
+      //------------------------------------------------------
+      // Setup fixture
+      bigint left("9874064");
+      bigint right("54137");
+      bigint result;
+
+      // Test
+      result = left * right;
+
+      // Verify
+      assert(left   == "9874064");
+      assert(right  == "54137");
+      assert(result == "534552202768");
+    }
+    {
+      //------------------------------------------------------
+      // Setup fixture
+      bigint left("9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999");
+      bigint right(0);
+      bigint result;
+
+      // Test
+      result = left * right;
+
+      // Verify
+      assert(left   == ("99999999999999999999999999999999999999999999999999999999999999999999999999\
+99999999999999999999999999999999999");
+      assert(right  == 0);
+      assert(result == 0);
+    }
+    {
+      //------------------------------------------------------
+      // Setup fixture
+      bigint left("138458");
+      bigint right("49907135468");
+      bigint result;
+
+      // Test
+      result = left * right;
+
+      // Verify
+      assert(left   == "138458");
+      assert(right  == "49907135468");
+      assert(result == "6910042162628344");
+    }
+
+
     std::cout << "Done testing multiply" << std::endl;
 }
