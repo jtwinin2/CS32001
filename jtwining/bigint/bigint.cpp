@@ -16,7 +16,7 @@ bigint::bigint(int b): bigint(){  //Initializing a Bigint to an int value
     b/=10;
     ++num;
   }
-  for(int i=0; i<num; ++i){  //the numers collected are in reverse so it must be reversed and stored in j_
+  for(int i=0; i<num; ++i){  //the numbers collected are in reverse so it must be reversed and stored in j_
     j_[i]=arr[num-i-1];
   }
 }
