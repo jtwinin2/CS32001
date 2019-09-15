@@ -12,13 +12,11 @@ public:
   bigint(int);
   bigint(const char[]);
   void debugPrint(std::ostream&) const;
-  bool operator<< (const bigint&) const;
+  friend bool operator<< (std::ostream&, const bigint&);
   bool operator== (const bigint&) const;
 private:
   int j_[CAPACITY];
   int num;
 };
-
-bool operator== (int, const bigint&);
 
 #endif /* BIGINT_HPP */
