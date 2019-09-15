@@ -15,7 +15,8 @@ public:
   bool operator<< (const bigint&) const;
   bool operator== (const bigint&) const;
 private:
-  bool j_[CAPACITY];
+  int j_[CAPACITY];
+  int num;
 };
 
 bool operator== (int, const bigint&);
