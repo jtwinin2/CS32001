@@ -12,7 +12,7 @@ public:
   bigint(int);
   bigint(const char[]);
   void debugPrint(std::ostream&) const;
-  friend bool operator<< (std::ostream&, const bigint&);
+  friend std::ostream&  operator<< (std::ostream&, const bigint&);
   bool operator== (const bigint&) const;
 private:
   int j_[CAPACITY];
