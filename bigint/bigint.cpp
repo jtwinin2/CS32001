@@ -4,7 +4,6 @@
 #include <iostream>
 #include "bigint.hpp"
 
-bigint X;
 bigint::bigint(){ // default constructor initializing bigint to zero
   num=0;
 }
