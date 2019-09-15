@@ -55,12 +55,12 @@ bool bigint::operator==(const bigint &L) const{  //compare if two bigints are eq
  return true;
 }
 
-bool operator<<(std::ostream out, const bigint& L){ //Overload output operator. takes a stream and bigint as input and write the bigint to the stream. prints atmost 80 digits per line
+std::ostream& operator<<(std::ostream& out, const bigint& L){ //Overload output operator. takes a stream and bigint as input and write the bigint to the stream. prints atmost 80 digits per line
   int i;
  for (i=0; i<L.num; ++i){
    out<<L.j_[i]<<'|';
    if ((i+1)%80==0)
    out<<'\n';
-}
-return true;
+ }
+ return out;
 }
