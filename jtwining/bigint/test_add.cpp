@@ -62,7 +62,6 @@ int main () {
       assert(result == 2);
     }
 
-    //    assert(1 == 2); //WRONG. This will fail, of course.
                     //You need to add more test cases here. Remove this assert.
 
     //Add test cases as needed.

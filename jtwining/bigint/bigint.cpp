@@ -65,14 +65,15 @@ bigint bigint::operator+ (const bigint& rhs) const { //Addition operator
   int number = 0;
   int carry = 0;
   for (int i=0; i< CAPACITY; ++i) {
+    number=0 , carry =0;
     number = j_[i] + rhs.j_[i] + carry;
     if(number >=10) {
-      number -= 10;
+      number %= 10;
       carry = 1;
     }
     result.j_[i] = number;
   }
-  return result;
+  return result; 
 }
 
 std::ostream& operator<<(std::ostream& out, const bigint& L){ //Overload output operator. takes a stream and bigint as input and write the bigint to the stream. prints atmost 80 digits per line
