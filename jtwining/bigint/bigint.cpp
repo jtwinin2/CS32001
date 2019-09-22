@@ -79,17 +79,19 @@ std::ostream& operator<<(std::ostream& out, const bigint& L){ //Overload output 
 
 std::istream& operator>>(std::istream& in, bigint& rhs){ //input operator
   char temp[CAPACITY];
+  char input;
   int i=0;
-  if(in.eof()) break;
-  if(!in.eof()){// if not the end of file and while it is not at a ";" read in and iterate
-    in >> rhs;
-  while(rhs != ';'){
-    temp[i] = rhs;
-    in >> rhs;
+
+  if(!in.eof()){          // if not the end of file and while it is not at a ";" read in and iterate
+    in >> input;
+  while(input != ';'){
+    temp[i] = input;
+    in >> input;
     ++i;
   }
+  else break;
   temp[i]=0;
-  rhs = bigint(temp);
+  rhs = bigint(temp);  //convert to bigint
   } 
   return in;
 }
