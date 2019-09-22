@@ -65,7 +65,6 @@ bigint bigint::operator+ (const bigint& rhs) const { //Addition operator
   int number = 0;
   int carry = 0;
   for (int i=0; i< CAPACITY; ++i) {
-    number=0 , carry =0;
     number = j_[i] + rhs.j_[i] + carry;
     if(number >=10) {
       number %= 10;
