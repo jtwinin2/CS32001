@@ -62,7 +62,7 @@ int bigint::operator[] (int i) const { //subscript operator
 bigint bigint::operator+ (const bigint& rhs) const { //Addition operator
   bigint result; 
   for(int i=0; i < CAPACITY; ++i) {         //iterating through and adding the left and right sides together.
-    result.j_[i] = lhs.j_[i] + rhs.j_[i]; 
+    result.j_[i] = j_[i] + rhs.j_[i]; 
   }
   return result;
 }
@@ -80,7 +80,8 @@ std::ostream& operator<<(std::ostream& out, const bigint& L){ //Overload output 
 std::istream& operator>>(std::istream& in, bigint& rhs){ //input operator
   char temp[CAPACITY];
   int i=0;
-  if(!in.eof())// if not the end of file and while it is not at a ";" read in and iterate
+  if(in.eof()) break;
+  if(!in.eof()){// if not the end of file and while it is not at a ";" read in and iterate
     in >> rhs;
   while(rhs != ';'){
     temp[i] = rhs;
@@ -89,5 +90,6 @@ std::istream& operator>>(std::istream& in, bigint& rhs){ //input operator
   }
   temp[i]=0;
   rhs = bigint(temp);
+  } 
   return in;
 }
