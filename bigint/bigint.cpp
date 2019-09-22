@@ -56,12 +56,15 @@ bool bigint::operator==(const bigint &L) const{  //compare if two bigints are eq
 }
 
 int bigint::operator[] (int i) const { //subscript operator
-  assert(i>=0);                        //requires int to great than or equal to 0 
-  
-
+  return j_[i];
 }
-bigint bigint::operator+ (const bigint& rhs) const {
 
+bigint bigint::operator+ (const bigint& rhs) const { //Addition operator
+  bigint result; 
+  for(int i=0; i < CAPACITY; ++i) {         //iterating through and adding the left and right sides together.
+    result.j_[i] = lhs.j_[i] + rhs.j_[i]; 
+  }
+  return result;
 }
 
 std::ostream& operator<<(std::ostream& out, const bigint& L){ //Overload output operator. takes a stream and bigint as input and write the bigint to the stream. prints atmost 80 digits per line

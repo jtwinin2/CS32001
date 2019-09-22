@@ -19,8 +19,8 @@ int main () {
         int digit = bi[0];
 
         // Verify
-        assert(bi    == 800);  //Wrong.  Will FAIL.  Fix and add test cases.
-        assert(digit == 250);
+        assert(bi    == 4);  //Wrong.  Will FAIL.  Fix and add test cases.
+        assert(digit == 0);
     }
     
     //Add test cases!!
