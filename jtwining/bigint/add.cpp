@@ -20,7 +20,7 @@ int main() {
     data1 >> int1;              //read in first bigint
     data1.get();               // move past the ';'
     data1 >> int2;            //read in second bigint
-    std::cout<< int1 << " + " << int2 << std::endl;
+    std::cout<< int1 << " + " << int2;
     result= int1 + int2;
     std::cout<< "=" << result <<std::endl;
   }

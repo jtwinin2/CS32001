@@ -59,10 +59,18 @@ int bigint::operator[] (int i) const { //subscript operator
   return j_[i];
 }
 
-bigint bigint::operator+ (const bigint& rhs) const { //Addition operator
-  bigint result; 
-  for(int i=0; i < CAPACITY; ++i) {         //iterating through and adding the left and right sides together.
-    result.j_[i] = j_[i] + rhs.j_[i]; 
+
+bigint bigint::operator+ (const bigint& rhs) const { //Addition operator 
+  bigint result;  
+  int number = 0;
+  int carry = 0;
+  for (int i=0; i< CAPACITY; ++i) {
+    number = j_[i] + rhs.j_[i] + carry;
+    if(number >=10) {
+      number -= 10;
+      carry = 1;
+    }
+    result.j_[i] = number;
   }
   return result;
 }
@@ -89,7 +97,6 @@ std::istream& operator>>(std::istream& in, bigint& rhs){ //input operator
     in >> input;
     ++i;
   }
-  else break;
   temp[i]=0;
   rhs = bigint(temp);  //convert to bigint
   } 
