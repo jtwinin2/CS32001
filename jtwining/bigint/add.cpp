@@ -13,6 +13,7 @@ int main() {
     std::cerr << "Could not open data1-1.txt, exiting." << std::endl;
     exit(1);
   }
+  while(!in.eof()){
   bigint (int1);
   bigint (int2);
   bigint (result);
@@ -22,7 +23,7 @@ int main() {
     std::cout<< int1 << " + " << int2 << std::endl;;
     result = int1 + int2;          //add the two bigints together
     std::cout<< "Result =" << result <<std::endl;
- 
+  }
   in.close();
   return 0;
 }
