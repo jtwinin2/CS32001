@@ -55,6 +55,14 @@ bool bigint::operator==(const bigint &L) const{  //compare if two bigints are eq
  return true;
 }
 
+int bigint::operator[] (int i) const { //subscript operator
+  assert(i>=0);                        //requires int to be between 0 and the capacity 
+  assert(i<CAPACITY);
+
+}
+
+
+
 std::ostream& operator<<(std::ostream& out, const bigint& L){ //Overload output operator. takes a stream and bigint as input and write the bigint to the stream. prints atmost 80 digits per line
   int i;
  for (i=0; i<L.num; ++i){
@@ -63,4 +71,19 @@ std::ostream& operator<<(std::ostream& out, const bigint& L){ //Overload output 
    out<<'\n';
  }
  return out;
+}
+
+std::istream& operator>>(std::istream& in, bigint& rhs){ //input operator
+  char temp[CAPACITY];
+  int i=0;
+  if(!in.eof())// if not the end of file and while it is not at a ";" read in and iterate
+    in>>rhs;
+  while(rhs != ';'){
+    temp[i]=rhs;
+    in>>rhs;
+    ++i;
+  }
+  temp[i]=0;
+  rhs= bigint(temp);
+  return in;
 }
