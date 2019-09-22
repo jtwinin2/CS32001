@@ -12,15 +12,15 @@ public:
   bigint(int);
   bigint(const char[]);
   void debugPrint(std::ostream&) const;
-  friend std::ostream&  operator<< (std::ostream&, const bigint&);
-  bool operator== (const bigint&) const;
-  bigint operator+(const bigint&) const;
-  int operator[] (int) const;
+  friend std::ostream&  operator<< (std::ostream&, const bigint&); //output operator
+  bool operator== (const bigint&) const; //Compares two bigints
+  bigint operator+(const bigint&) const; //addition operator
+  int operator[] (int) const; //subscript operator
 private:
   int j_[CAPACITY];
   int num;
 };
 
-std::istream& operator>> (std::istream&,  bigint&); 
+std::istream& operator>> (std::istream&,  bigint&); //input operator 
 
 #endif /* BIGINT_HPP */

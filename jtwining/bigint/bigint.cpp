@@ -24,7 +24,7 @@ bigint::bigint(int b): bigint(){  //Initializing a Bigint to an int value
 bigint::bigint(const char c[]){ //initializing a bigint to a constant char
   num=0;
   int i=0;
-  bool nzFound=false; //checks to see if it is iterating over leading zeros
+  bool nzFound=false; //checks to see if it is iterating over leading zeros - no zero found
   while(c[i]!='\0'){
     if(!nzFound && c[i]=='0'){ //if it is iterating over zeros, dont store that digit
       ++i;
@@ -56,12 +56,13 @@ bool bigint::operator==(const bigint &L) const{  //compare if two bigints are eq
 }
 
 int bigint::operator[] (int i) const { //subscript operator
-  assert(i>=0);                        //requires int to be between 0 and the capacity 
-  assert(i<CAPACITY);
+  assert(i>=0);                        //requires int to great than or equal to 0 
+  
 
 }
+bigint bigint::operator+ (const bigint& rhs) const {
 
-
+}
 
 std::ostream& operator<<(std::ostream& out, const bigint& L){ //Overload output operator. takes a stream and bigint as input and write the bigint to the stream. prints atmost 80 digits per line
   int i;
@@ -77,13 +78,13 @@ std::istream& operator>>(std::istream& in, bigint& rhs){ //input operator
   char temp[CAPACITY];
   int i=0;
   if(!in.eof())// if not the end of file and while it is not at a ";" read in and iterate
-    in>>rhs;
+    in >> rhs;
   while(rhs != ';'){
-    temp[i]=rhs;
-    in>>rhs;
+    temp[i] = rhs;
+    in >> rhs;
     ++i;
   }
   temp[i]=0;
-  rhs= bigint(temp);
+  rhs = bigint(temp);
   return in;
 }
