@@ -6,7 +6,8 @@
 
 bigint::bigint(){ // default constructor initializing bigint to zero
   for (int i=0; i<CAPACITY; ++i)
-    num = 0;
+    j_[i] = 0;
+  num = 0;
 }
 
 bigint::bigint(int b): bigint(){  //Initializing a Bigint to an int value
