@@ -32,7 +32,7 @@ bigint::bigint(const char c[]) : bigint(){ //initializing a bigint to a constant
       j_[i] = 0;
     }
   }
-
+}
 
 
 
