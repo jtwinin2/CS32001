@@ -19,11 +19,16 @@ int main () {
         //------------------------------------------------------
         // Setup fixture
       bigint left(0);
+      left.debugPrint(std::cout);
+
       bigint right(0);
+      right.debugPrint(std::cout);
+
       bigint result;
 
         // Test 
         result = left + right;
+	result.debugPrint(std::cout);
 
         // Verify
         assert(left   == 0);
