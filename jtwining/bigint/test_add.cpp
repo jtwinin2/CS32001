@@ -18,9 +18,9 @@ int main () {
 
         //------------------------------------------------------
         // Setup fixture
-        bigint left(0);
-        bigint right(0);
-        bigint result;
+      bigint left(0);
+      bigint right(0);
+      bigint result;
 
         // Test 
         result = left + right;
@@ -35,11 +35,16 @@ int main () {
       //------------------------------------------------------
       // Setup fixture
       bigint left(1);
+      left.debugPrint(std::cout);
       bigint right(0);
+      right.debugPrint(std::cout);
       bigint result;
+
 
       // Test
       result = left + right;
+
+      result.debugPrint(std::cout);
 
       // Verify
       assert(left   == 1);
@@ -62,7 +67,7 @@ int main () {
       assert(result == 2);
     }
 
-                    //You need to add more test cases here. Remove this assert.
+                   
 
     //Add test cases as needed.
 

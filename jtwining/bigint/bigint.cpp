@@ -5,7 +5,8 @@
 #include "bigint.hpp"
 
 bigint::bigint(){ // default constructor initializing bigint to zero
-  num=0;
+  for (int i=0; i<CAPACITY; ++i)
+    num=0;
 }
 
 bigint::bigint(int b): bigint(){  //Initializing a Bigint to an int value
@@ -39,7 +40,7 @@ bigint::bigint(const char c[]){ //initializing a bigint to a constant char
 
 void bigint::debugPrint(std::ostream& out) const{  // It simply prints out every element of your bigint array starting from the highen d and printing a "|" between each value
   int i;
- for(i=0;i<num-1; ++i){
+ for(i=0;i<CAPACITY-1; ++i){
    out<<j_[i]<<'|';
  }
  out<<j_[i];
@@ -48,11 +49,11 @@ void bigint::debugPrint(std::ostream& out) const{  // It simply prints out every
 bool bigint::operator==(const bigint &L) const{  //compare if two bigints are equal. It returns a bool - true if equal and false other wise
   if(num !=L.num)
     return false;
- for(int i=0;i<num; ++i){
-   if(j_[i] !=L.j_[i])
-     return false;
- }
- return true;
+  for(int i=0;i<num; ++i){
+    if(j_[i] !=L.j_[i])
+      return false;
+  }
+  return true;
 }
 
 int bigint::operator[] (int i) const { //subscript operator
@@ -60,16 +61,14 @@ int bigint::operator[] (int i) const { //subscript operator
 }
 
 
-bigint bigint::operator+ (const bigint& rhs) const { //Addition operator 
+bigint bigint::operator+ (const bigint& rhs) const { //Addition operator
   bigint result;  
   int number = 0;
-  int carry = 0;
-  for (int i=0; i< CAPACITY; ++i) {
+  int carry;
+  for (int i=0; i < CAPACITY; ++i) {
     number = j_[i] + rhs.j_[i] + carry;
-    if(number >=10) {
-      number %= 10;
-      carry = 1;
-    }
+    carry = number/10;
+    number %= 10;
     result.j_[i] = number;
   }
   return result; 
@@ -77,12 +76,12 @@ bigint bigint::operator+ (const bigint& rhs) const { //Addition operator
 
 std::ostream& operator<<(std::ostream& out, const bigint& L){ //Overload output operator. takes a stream and bigint as input and write the bigint to the stream. prints atmost 80 digits per line
   int i;
- for (i=0; i<L.num; ++i){
-   out<<L.j_[i]<<'|';
-   if ((i+1)%80==0)
-   out<<'\n';
- }
- return out;
+  for (i=0; i<L.num; ++i){
+    out<<L.j_[i]<<'|';
+    if ((i+1) % 80 ==0)
+      out<<std::endl;
+  }
+  return out;
 }
 
 std::istream& operator>>(std::istream& in, bigint& rhs){ //input operator
