@@ -19,16 +19,13 @@ int main () {
         //------------------------------------------------------
         // Setup fixture
       bigint left(0);
-      left.debugPrint(std::cout);
-
       bigint right(0);
-      right.debugPrint(std::cout);
 
       bigint result;
 
         // Test 
         result = left + right;
-	result.debugPrint(std::cout);
+	
 
         // Verify
         assert(left   == 0);
@@ -40,16 +37,12 @@ int main () {
       //------------------------------------------------------
       // Setup fixture
       bigint left(1);
-      left.debugPrint(std::cout);
       bigint right(0);
-      right.debugPrint(std::cout);
       bigint result;
 
 
       // Test
       result = left + right;
-
-      result.debugPrint(std::cout);
 
       // Verify
       assert(left   == 1);
@@ -157,7 +150,7 @@ int main () {
   {
     //------------------------------------------------------
     // Setup fixture
-    bigint left("18935475409451");
+    bigint left("189354754094519");
     bigint right("98731845097135");
     bigint result;
 
@@ -167,7 +160,7 @@ int main () {
     // Verify
     assert(left   == "189354754094519");
     assert(right  == "98731845097135");
-    assert(result == "288086599191654 ");
+    assert(result == "288086599191654");
   }
   {
     //------------------------------------------------------
@@ -212,7 +205,7 @@ int main () {
     // Verify
     assert(left   == "777777777777777777777777777777777777777777777777777777777777");
     assert(right  == "333333333333333333333333333333333333333333333333333333333333");
-    assert(result == "111111111111111111111111111111111111111111111111111111111110");
+    assert(result == "1111111111111111111111111111111111111111111111111111111111110");
   }
   {
     //------------------------------------------------------
