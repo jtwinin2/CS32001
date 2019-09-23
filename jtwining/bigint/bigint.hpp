@@ -18,7 +18,6 @@ public:
   int operator[] (int) const; //subscript operator
 private:
   int j_[CAPACITY];
-  int num;
 };
 
 std::istream& operator>> (std::istream&,  bigint&); //input operator 
