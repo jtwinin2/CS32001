@@ -103,17 +103,18 @@ std::ostream& operator<<(std::ostream& out, const bigint& L){ //Overload output 
 
 std::istream& operator>>(std::istream& in, bigint& rhs){ //input operator
   char temp[CAPACITY];
-  char input;
+  char input = 0;
   int i=0;
 
-    in >> input;
-  while(input != ';'){
-    temp[i] = input;
-    in >> input;
+  while(input != ';') {
+    in.get(input);
     ++i;
-  } 
-  temp[i]=0;
-  rhs = bigint(temp); 
-   
+  }
+  int size = i;
+  char num;
+  for (int j = 0; j < size + 1; ++j) {
+    num = temp[j];
+    rhs.j_[size - j] = num - '0';
+  }
   return in;
 }

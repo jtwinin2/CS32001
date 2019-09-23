@@ -13,13 +13,13 @@ public:
   bigint(const char[]);
   void debugPrint(std::ostream&) const;
   friend std::ostream&  operator<< (std::ostream&, const bigint&); //output operator
+  friend std::istream& operator>> (std::istream&,  bigint&); //input operator
   bool operator== (const bigint&) const; //Compares two bigints
   bigint operator+(const bigint&) const; //addition operator
   int operator[] (int) const; //subscript operator
 private:
   int j_[CAPACITY];
 };
-
-std::istream& operator>> (std::istream&,  bigint&); //input operator 
+ 
 
 #endif /* BIGINT_HPP */
