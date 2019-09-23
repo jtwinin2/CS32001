@@ -81,15 +81,23 @@ int bigint::operator[] (int i) const { //subscript operator
 bigint bigint::operator+ (const bigint& rhs) const { //Addition operator
   bigint result;  
   int number = 0;
-  int carry;
-  for (int i=0; i < CAPACITY; ++i) {
-    number = j_[i] + rhs.j_[i] + carry;
-    carry = number/10;
+  bool carry = false;
+  for (int i=0; i<CAPACITY; ++i){
+    number = 0;
+    if (carry) {
+    carry = false;
+    ++number;
+    }
+  number = j_[i] + rhs.j_[i] + number;
+  if (number >= 10){
+    carry = true;
     number %= 10;
-    result.j_[i] = number;
+  }
+  result.j_[i] = number;
   }
   return result; 
 }
+  
 
 std::ostream& operator<<(std::ostream& out, const bigint& L){ //Overload output operator. takes a stream and bigint as input and write the bigint to the stream. prints atmost 80 digits per line
   int i;
@@ -102,19 +110,17 @@ std::ostream& operator<<(std::ostream& out, const bigint& L){ //Overload output 
 }
 
 std::istream& operator>>(std::istream& in, bigint& rhs){ //input operator
-  char temp[CAPACITY];
-  char input = 0;
-  int i=0;
+  char ch, temp [CAPACITY];
+  for (int j = 0; j<CAPACITY; j++){
+    temp[j]=0;
+  }
+  in >> ch;
+  for (int i=0; i<CAPACITY && ch!=';'; ++i){
+    temp[i]=ch;
+    in >> ch;
+  }
 
-  while(input != ';') {
-    in.get(input);
-    ++i;
-  }
-  int size = i;
-  char num;
-  for (int j = 0; j < size + 1; ++j) {
-    num = temp[j];
-    rhs.j_[size - j] = num - '0';
-  }
+  rhs=bigint(temp);
   return in;
 }
+
