@@ -80,11 +80,13 @@ bigint bigint::operator+ (const bigint& rhs) const { //Addition operator
 
 std::ostream& operator<<(std::ostream& out, const bigint& L){ //Overload output operator. takes a stream and bigint as input and write the bigint to the stream. prints atmost 80 digits per line
   int i;
-  for (i=0; i<CAPACITY; ++i){
-    out<<L.j_[i]<<'|';
-    if ((i+1) % 80 ==0)
-      out<<std::endl;
-  }
+  int count = 0;
+  for (i = CAPACITY -1; i >= 0;  --i){
+    ++count;
+      out<<L.j_[i]<<'|';
+      if (count  % 80 ==0)
+	out<<std::endl;
+    }
   return out;
 }
 
