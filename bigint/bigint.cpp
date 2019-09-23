@@ -90,15 +90,14 @@ std::istream& operator>>(std::istream& in, bigint& rhs){ //input operator
   char input;
   int i=0;
 
-  if(!in.eof()){          // if not the end of file and while it is not at a ";" read in and iterate
     in >> input;
   while(input != ';'){
     temp[i] = input;
     in >> input;
     ++i;
-  }
-  temp[i]=0;
-  rhs = bigint(temp);  //convert to bigint
   } 
+  temp[i]=0;
+  rhs = bigint(temp); 
+   
   return in;
 }
