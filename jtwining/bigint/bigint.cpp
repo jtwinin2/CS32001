@@ -38,14 +38,19 @@ bigint::bigint(int b): bigint(){  //Initializing a Bigint to an int value
 
 
 bigint::bigint(const char c[]) : bigint(){ //initializing a bigint to a constant char
-  int i=0;
-  while(c[i]!='\0'){
-    if(c[i]=='0'){ //if it is iterating over zeros, dont store that digit
-      ++i;
-      continue;
+  //gets size of c array
+  int size = 0;
+  for (int i = 1; c[i] != '\0'; ++i) {
+    ++size;
+  }
+
+  //puts c array into bigint
+  for (int i = 0; i < CAPACITY; ++i) {
+    if (i <= size) {
+      j_[i] = c[size - i] - '0';
+    } else {
+      j_[i] = 0;
     }
-    j_[i]=c[i]-'0'; //converting ascii value to an integer
-    ++i;
   }
 }
 
