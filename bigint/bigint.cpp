@@ -6,7 +6,7 @@
 
 bigint::bigint(){ // default constructor initializing bigint to zero
   for (int i=0; i<CAPACITY; ++i)
-    num=0;
+    num = 0;
 }
 
 bigint::bigint(int b): bigint(){  //Initializing a Bigint to an int value
@@ -38,7 +38,7 @@ bigint::bigint(const char c[]){ //initializing a bigint to a constant char
   }
 }
 
-void bigint::debugPrint(std::ostream& out) const{  // It simply prints out every element of your bigint array starting from the highen d and printing a "|" between each value
+void bigint::debugPrint(std::ostream& out) const{  // It simply prints out every element of your bigint array starting from the highend and printing a "|" between each value
   int i;
  for(i=0;i<CAPACITY-1; ++i){
    out<<j_[i]<<'|';
@@ -47,14 +47,14 @@ void bigint::debugPrint(std::ostream& out) const{  // It simply prints out every
 }
 
 bool bigint::operator==(const bigint &L) const{  //compare if two bigints are equal. It returns a bool - true if equal and false other wise
-  if(num !=L.num)
-    return false;
-  for(int i=0;i<num; ++i){
-    if(j_[i] !=L.j_[i])
+    if(num !=L.num)
       return false;
+    for(int i=0;i<num; ++i){
+      if(j_[i] !=L.j_[i])
+	return false;
+    }
+    return true;
   }
-  return true;
-}
 
 int bigint::operator[] (int i) const { //subscript operator
   return j_[i];
