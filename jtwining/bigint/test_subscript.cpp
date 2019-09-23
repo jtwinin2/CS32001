@@ -20,7 +20,7 @@ int main () {
 
         // Verify
         assert(bi    == 4);
-        assert(digit == 0);
+        assert(digit == 4);
     }
     
     {
