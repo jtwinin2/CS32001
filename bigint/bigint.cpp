@@ -10,29 +10,9 @@ bigint::bigint(){ // default constructor initializing bigint to zero
 }
 
 bigint::bigint(int b): bigint(){  //Initializing a Bigint to an int value
-  int tmp = b;
-  int digits = 0;
-  while (tmp != 0) {
-    tmp /= 10;
-    ++digits;
-  }
-
-  //puts digits into bigint using numDigits
-  int divisor;
-  for (int i = 0; i < CAPACITY; i++) {
-
-    //assigns initial number to bigint
-    if (digits != 0) {
-      divisor = 1;
-      for (int j = digits - 1; j > 0; j--) {
-	divisor *= 10;
-      }
-      j_[--digits] = b / divisor;
-      b %=  divisor;
-    } else {
-      //this will assign any trailing zeros to bigint
-      j_[i] = 0;
-    }
+  for(int i=0; i < CAPACITY; ++i){
+    j_[i]=b % 10;
+    b /=10;
   }
 }
 
@@ -52,7 +32,6 @@ bigint::bigint(const char c[]) : bigint(){ //initializing a bigint to a constant
       j_[i] = 0;
     }
   }
-}
 
 
 
