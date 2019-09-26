@@ -36,17 +36,22 @@ void UniqRandInt (int,   int, int[]);
 
 ///////////////////////////////////////////////////////////////////////////
 int main() {
-//    std::cerr<<"in main\n";
+
+  //    std::cerr<<"in main\n";
 
     int arr[SIZE_OF_SAMPLES];
     
     srand(9809);  //Seed random number generator.
     
 
-    for (int i = 0; i < REP; i++) {
+    for (int i = 0; i < REP; ++i) {
+      //  std::cerr<<"main, first for loop \n";
         UniqRandInt(MAX, SIZE_OF_SAMPLES, arr);
-        for(int j = 0; j < SIZE_OF_SAMPLES; j++) {
-            std::cout << arr[i] << " ";
+	//	std::cerr<<"in first for loop in main \n";
+        for(int j = 0; j < SIZE_OF_SAMPLES; ++j) {
+	  //  std::cerr<<"in 2nd for loop in main \n";
+
+            std::cout << arr[j] << " ";
         }
         std::cout << std::endl;
     }
@@ -65,12 +70,14 @@ void UniqRandInt(int max, int n, int result[]) {
 
         r = rand();  //Get random number
         r = r % (max + 1);
-        if (inArray(result, cntr, r)) {
+	//	std::cerr<< "couldnt get random number";
+	if (!inArray(result, cntr, r)) {
+
+	  //  std::cerr<< "inArray error during check in void";
             result[cntr] =  r;
-            cntr++;
+            ++cntr;
         }
     }
-    return;
 }
 
 ///////////////////////////////////////////////////////////////////////////
