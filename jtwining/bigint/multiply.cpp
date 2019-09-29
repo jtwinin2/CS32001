@@ -8,7 +8,7 @@
 #include "bigint.hpp"
 
 int main() {
-  std::ifstream in("data1-.txt");    // Define stream for input
+  std::ifstream in("data1-2.txt");    // Define stream for input
   if(!in) {                           // Make sure it opened correctly.
     std::cerr << "Could not open data1-1.txt, exiting." << std::endl;
     exit(1);

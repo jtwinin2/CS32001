@@ -16,7 +16,7 @@ int main () {
         bigint bi(3);
 
         // Test 
-        bi = bi.times_10(1);
+        bi = bi.times10(1);
 
         // Verify
         assert(bi == 30);
@@ -28,7 +28,7 @@ int main () {
       bigint bi(37);
 
       // Test
-      bi = bi.times_10(3);
+      bi = bi.times10(3);
 
       // Verify
       assert(bi == 37000);
@@ -39,7 +39,7 @@ int main () {
       bigint bi(645);
 
       // Test
-      bi = bi.times_10(4);
+      bi = bi.times10(4);
 
       // Verify
       assert(bi == 6450000);
@@ -50,8 +50,8 @@ int main () {
       bigint bi(4232);
 
       // Test
-      bi = bi.times_10(6);
-
+      bi = bi.times10(6);
+      bi.debugPrint(std::cout);
       // Verify
       assert(bi == 4232000000);
     }
@@ -61,7 +61,7 @@ int main () {
       bigint bi(753841);
 
       // Test
-      bi = bi.times_10(8);
+      bi = bi.times10(8);
 
       // Verify
       assert(bi == "75384100000000");
@@ -72,7 +72,7 @@ int main () {
       bigint bi(94138547);
 
       // Test
-      bi = bi.times_10(1);
+      bi = bi.times10(1);
 
       // Verify
       assert(bi == 941385470);
@@ -83,7 +83,7 @@ int main () {
       bigint bi("120165035410");
 
       // Test
-      bi = bi.times_10(9);
+      bi = bi.times10(9);
 
       // Verify
       assert(bi == "120165035410000000000");
@@ -94,7 +94,7 @@ int main () {
       bigint bi(8);
 
       // Test
-      bi = bi.times_10(20);
+      bi = bi.times10(20);
 
       // Verify
       assert(bi == "800000000000000000000");
@@ -105,7 +105,7 @@ int main () {
       bigint bi("541356713385712355410358");
 
       // Test
-      bi = bi.times_10(18);
+      bi = bi.times10(18);
 
       // Verify
       assert(bi == "541356713385712355410358000000000000000000");
@@ -116,7 +116,7 @@ int main () {
       bigint bi("654732136871032106871321357100654703246840321687");
 
       // Test
-      bi = bi.times_10(1);
+      bi = bi.times10(1);
 
       // Verify
       assert(bi == "6547321368710321068713213571006547032468403216870");
@@ -127,7 +127,7 @@ int main () {
       bigint bi("9870210687432106873210687602130687321035765103216873021324687302138768403216");
 
       // Test
-      bi = bi.times_10(30);
+      bi = bi.times10(30);
 
       // Verify
       assert(bi == "9870210687432106873210687602130687321035765103216873021324687302138768403216000000000000000000000000000000");
@@ -139,7 +139,7 @@ int main () {
       bigint bi("68416354698713210684103651065840320003856403687697832163873213867321");
 
       // Test
-      bi = bi.times_10(90);
+      bi = bi.times10(90);
 
       // Verify
       assert(bi == "68416354698713210684103651065840320003856403687697832163873213867321000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000");

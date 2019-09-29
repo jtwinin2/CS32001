@@ -78,7 +78,16 @@ bigint bigint::operator+ (const bigint& rhs) const { //Addition operator
 }
   
 bigint bigint::timesDigit(int z) const {  //multiply a bigint by a single number where 0 <= number <= 9
-
+  bigint result;
+  int carry = 0;
+  int digit = 0;
+  for (int i = 0; i < CAPACITY; ++i) {
+    digit = (j_[i] * z) + carry;
+    carry = digit/10;
+    digit %= 10;
+    result.j_[i]= digit;
+  }
+  return result;
 }
 
 bigint bigint::times10(int x) const {       //multiply a bigint by 10^n with n>0. (a.k.a. shift left base 10)
@@ -99,7 +108,7 @@ bigint bigint::operator* (const bigint& rhs) { //multiplies two bigints together
     times = *this;
     times.timesDigit(rhs.j_[i]);
     times.times10(i);
-    result += times;
+    result = result + times;
   }
   return result;
 }
