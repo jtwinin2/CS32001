@@ -77,16 +77,31 @@ bigint bigint::operator+ (const bigint& rhs) const { //Addition operator
   return result; 
 }
   
-bigint bigint::timesDigit(int x) const {
+bigint bigint::timesDigit(int z) const {  //multiply a bigint by a single number where 0 <= number <= 9
 
 }
 
-bigint bigint::times10(int x) const {
-
+bigint bigint::times10(int x) const {       //multiply a bigint by 10^n with n>0. (a.k.a. shift left base 10)
+  bigint result;
+  for(int i = (CAPACITY - 1); i >= 0; --i){
+    result.j_[i] = j_[i-x];
+  }
+  for (int i = (x - 1); i >= 0; --i) {
+    result.j_[i] = 0;
+  }
+  return result;
 }
 
-bigint bigint::operator* (const bigint& rhs) {
-
+bigint bigint::operator* (const bigint& rhs) { //multiplies two bigints together using times10 and timesDigit
+  bigint result;
+  bigint times;
+  for (int i = 0; i < CAPACITY; ++i){
+    times = *this;
+    times.timesDigit(rhs.j_[i]);
+    times.times10(i);
+    result += times;
+  }
+  return result;
 }
 
 std::ostream& operator<<(std::ostream& out, const bigint& L){ //Overload output operator. takes a stream and bigint as input and write the bigint to the stream. prints atmost 80 digits per line
