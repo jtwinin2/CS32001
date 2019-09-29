@@ -17,6 +17,9 @@ public:
   bool operator== (const bigint&) const; //Compares two bigints
   bigint operator+(const bigint&) const; //addition operator
   int operator[] (int) const; //subscript operator
+  bigint timesDigit(int) const;
+  bigint times10(int) const;
+  bigint operator* (const bigint&);
 private:
   int j_[CAPACITY];
 };

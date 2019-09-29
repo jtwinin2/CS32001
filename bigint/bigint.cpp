@@ -77,6 +77,17 @@ bigint bigint::operator+ (const bigint& rhs) const { //Addition operator
   return result; 
 }
   
+bigint bigint::timesDigit(int x) const {
+
+}
+
+bigint bigint::times10(int x) const {
+
+}
+
+bigint bigint::operator* (const bigint& rhs) {
+
+}
 
 std::ostream& operator<<(std::ostream& out, const bigint& L){ //Overload output operator. takes a stream and bigint as input and write the bigint to the stream. prints atmost 80 digits per line
   int i;
