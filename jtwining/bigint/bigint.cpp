@@ -92,7 +92,7 @@ bigint bigint::timesDigit(int z) const {  //multiply a bigint by a single number
 
 bigint bigint::times10(int x) const {       //multiply a bigint by 10^n with n>0. (a.k.a. shift left base 10)
   bigint result;
-  for(int i = (CAPACITY - 1); i >= 0; --i){
+  for(int i = CAPACITY; i >= 0; --i){
     result.j_[i] = j_[i-x];
   }
   for (int i = (x - 1); i >= 0; --i) {
@@ -102,13 +102,12 @@ bigint bigint::times10(int x) const {       //multiply a bigint by 10^n with n>0
 }
 
 bigint bigint::operator* (const bigint& rhs) { //multiplies two bigints together using times10 and timesDigit
-  bigint result;
-  bigint times;
-  for (int i = 0; i < CAPACITY; ++i){
-    times = *this;
-    times.timesDigit(rhs.j_[i]);
-    times.times10(i);
-    result = result + times;
+  bigint result = 0;
+  bigint temp;
+  for (int i = 0; i <CAPACITY-1; ++i){
+    temp = *this;
+    temp = temp.timesDigit(rhs.j_[i]);
+    result = result + temp.times10(i);
   }
   return result;
 }
