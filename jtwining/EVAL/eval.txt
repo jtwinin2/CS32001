@@ -1,7 +1,7 @@
 Project 1 
 M1-- 95
 M2-- 100
-M3--
+M3-- 90, test cases are not complete, while printing I do not understant the results.
 Bonus-- 
 
 
