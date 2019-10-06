@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include "string.hpp"
+#include <cassert>
 
 String::String() {
   str[0] = 0;
@@ -72,12 +73,12 @@ String operator+(char lhs, const String& rhs) {
   return String(lhs) + rhs;
 }
 
-String operator+(const char lhs[], const String* rhs) {
+String operator+(const char lhs[], const String& rhs) {
   return String(lhs) + rhs;
 }
 
-String& String::operator+=(const String& rhs) {
-  int offset() = length();
+String String::operator+=(const String& rhs) {
+  int offset = length();
   int i = 0;
   while (rhs.str[i] != 0) {
     str[offset + i] = rhs.str[i];
@@ -102,7 +103,7 @@ bool operator==(char lhs[], const String& rhs) {
   return String(lhs) == rhs;
 }
 
-bool operator<(const String& rhs) const {
+bool String::operator<(const String& rhs) const {
   int i = 0;
   while ((str[i] != 0) && (rhs.str[i] != 0) && (str[i] == rhs.str[i])) ++i;
   return str[i] < rhs.str[i];
@@ -134,15 +135,16 @@ bool operator>=(const String& lhs, const String& rhs) {
 
 std::ostream& operator<<(std::ostream& out, const String& rhs) {
   out << rhs.str;
+  return out;
 }
 
 std::istream& operator>>(std::istream& in, String& rhs) {
-  char buf[STRING_SIZE];
+  char buff[STRING_SIZE];
   if (!in.eof())
-    in >> buf;
+    in >> buff;
   else
-    buf[0] = 0;
-  rhs = String(buf);
+    buff[0] = 0;
+  rhs = String(buff);
   return in;
 }
 
