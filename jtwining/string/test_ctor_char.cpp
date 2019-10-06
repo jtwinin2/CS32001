@@ -43,6 +43,6 @@ int main ()
     assert(str == "mn");
   }
 
-  std::cout << "Done testing XXX." << std::endl;
+  std::cout << "Done testing Charactor Constructor." << std::endl;
 
 }
