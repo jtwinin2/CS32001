@@ -11,7 +11,14 @@
 //===========================================================================
 
 int main () {
+  // Setup
 
+  // Test 
+  String str;
+
+  // Verify
+  std::cout << "0 == " << str << std::endl;
+  assert(str == 0);
 
   std::cout << "Done testing default constructor." << std::endl;
 }

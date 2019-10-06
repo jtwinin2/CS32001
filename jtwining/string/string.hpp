@@ -36,16 +36,17 @@ public:
     int     capacity      ()               const; //Max chars that can be stored (not including null terminator)
     int     length        ()               const; //Number of char in string
     String  operator+     (const String&)  const; //Concatenation
+    String  operator+=    (const String&)  const;
     bool    operator==    (const String&)  const;
     bool    operator<     (const String&)  const;
 
     friend  std::istream& operator>>(std::istream&, String&);
     friend  std::ostream& operator<<(std::ostream&, const String&);
 
-    int    findChar    (int, char)    const;
-    int    findChar    (char)          const;
-    int    findStri    (int, const String&) const;
-    String subStr      (int, int) const;
+    int    findch        (int, char)    const;
+    int    findch        (char)          const;
+    int    findstr       (int, const String&) const;
+    String substr        (int, int) const;
 
 private:
     char str[STRING_SIZE];
