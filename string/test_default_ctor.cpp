@@ -18,7 +18,7 @@ int main () {
 
   // Verify
   std::cout << "0 == " << str << std::endl;
-  assert(str == 0);
+  assert(str == '0');
 
   std::cout << "Done testing default constructor." << std::endl;
 }
