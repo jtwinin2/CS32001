@@ -36,7 +36,7 @@ public:
     int     capacity      ()               const; //Max chars that can be stored (not including null terminator)
     int     length        ()               const; //Number of char in string
     String  operator+     (const String&)  const; //Concatenation
-    String  operator+=    (const String&)  const;
+    String  operator+=    (const String&);
     bool    operator==    (const String&)  const;
     bool    operator<     (const String&)  const;
 
