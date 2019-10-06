@@ -14,10 +14,11 @@ int main () {
         //------------------------------------------------------
         // Setup fixture
         bigint bi(3);
+	bi.debugPrint(std::cout);
 
         // Test 
         bi = bi.times10(1);
-
+	bi.debugPrint(std::cout);
         // Verify
         assert(bi == 30);
     }
