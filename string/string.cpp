@@ -1,7 +1,7 @@
 //Project 2 - String ADT
 //Justin Twining
 // 10/07/2019
-// String ADT used to process the Apache COmmon log file and keep track of different log entries.
+// String ADT used to process the Apache Common log file and keep track of different log entries.
 
 #include <iostream>
 #include "string.hpp"
@@ -18,11 +18,11 @@ String::String(char ch) {
 //REQUIRES: str.length() < capacity()
 //String a("abc")
 //Takes character array and turns into string array
-String::String(const char str[]) {
+String::String(const char X[]) {
   int i = 0;
-  while (str[i] != 0) {
+  while (X[i] != 0) {
     if (i == capacity()) break;
-    str[i] = str[i];
+    str[i] = X[i];
     ++i;
   }
   str[i] = 0;
@@ -104,8 +104,8 @@ bool operator==(char lhs[], const String& rhs) {
 
 bool operator<(const String& rhs) const {
   int i = 0;
-  while ((s[i] != 0) && (rhs.str[i] != 0) && (s[i] == rhs.str[i])) ++i;
-  return s[i] < rhs.str[i];
+  while ((str[i] != 0) && (rhs.str[i] != 0) && (str[i] == rhs.str[i])) ++i;
+  return str[i] < rhs.str[i];
 }
 
 bool operator<(char lhs, const String& rhs) {
@@ -116,19 +116,19 @@ bool operator<(char lhs[], const String& rhs) {
   return String(lhs) < rhs;
 }
 
-bool operator!=(const & lhs, const String& rhs) {
+bool operator!=(const String& lhs, const String& rhs) {
   return !(lhs == rhs) || (lhs == rhs);
 }
 
-bool operator<=(const & lhs, const String& rhs) {
+bool operator<=(const String& lhs, const String& rhs) {
   return (lhs < rhs) || (lhs == rhs);
 }
 
-bool operator>(const & lhs, const String& rhs) {
+bool operator>(const String& lhs, const String& rhs) {
   return (rhs < lhs);
 }
 
-bool operator>=(const & lhs, const String& rhs) {
+bool operator>=(const String& lhs, const String& rhs) {
   return !(lhs < rhs);
 }
 
@@ -149,7 +149,7 @@ std::istream& operator>>(std::istream& in, String& rhs) {
 //REQUIRES: 0 <= start < length()
 //ENSURES:  retval == i where str[i] == ch && i >= start
 //          or retval == -1 if ch != s[start.length()-1]
-int String::findChar(int start, char ch) const {
+int String::findch(int start, char ch) const {
   if ( (start < 0) || (start >= length()) ) return -1;
   int i = start;
   while (str[i] != 0) {
@@ -159,22 +159,21 @@ int String::findChar(int start, char ch) const {
   return -1;
 }
 
-int String::findChar(char ch) const { 
-  return findChar(0, ch); 
+int String::findch(char ch) const { 
+  return findch(0, ch); 
 }
 
 //REQUIRES: 0 <= start <= length() - str.length() &&
 //          length() >= str.length()
 //ENSURES:  retval == i where str[i,..str.length()-1] == str
 //          retval == -1 if string not in str
-int String::findStr(int start, const String& str) const {
-  if ((start < 0) || (start > length() - str.length())) return -1;
-  if (length() < str.length()) return -1;
+int String::findstr(int start, const String& st) const {
+  if ((start < 0) || (start > length() - st.length())) return -1;
+  if (length() < st.length()) return -1;
 
-  int strlen = str.length();
   int i = start;
-  while ( (str[i] != 0) && (i <= length() - strlen) ) {
-    if (str == substr(i, i+strlen-1)) return i;
+  while ( (str[i] != 0) && (i <= length() - st.length()) ) {
+    if (st == substr(i, i+st.length()-1)) return i;
     ++i;
   }
   return -1;
@@ -182,7 +181,7 @@ int String::findStr(int start, const String& str) const {
 
 //REQUIRES: 0 <= start <= end < length()
 //ENSURES:  retval == s[start, ..., end]
-String String::subStr(int start, int end) const {
+String String::substr(int start, int end) const {
   if (start < 0) return String();
   if (start > end) return String();
   if (end >= length()) return String();
