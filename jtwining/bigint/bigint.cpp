@@ -92,11 +92,11 @@ bigint bigint::timesDigit(int z) const {  //multiply a bigint by a single number
 
 bigint bigint::times10(int x) const {       //multiply a bigint by 10^n with n>0. (a.k.a. shift left base 10)
   bigint result;
-  for(int i = CAPACITY; i >= 0; --i){
+  for(int i = CAPACITY-1; i >= 0; --i){
     result.j_[i] = j_[i-x];
   }
-  for (int i = (x - 1); i >= 0; --i) {
-    result.j_[i] = 0;
+  for (int j = 0; j < x; ++j) {
+    result.j_[j] = 0;
   }
   return result;
 }
