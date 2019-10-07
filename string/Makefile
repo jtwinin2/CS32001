@@ -84,7 +84,7 @@ tests: $(MYCTOR) $(MYOPS) $(MYREL)
 	./test_input 
 	./test_find_char 
 	./test_find_string 
-#	./test_substring
+	./test_substring
 #Milestone 2
 #	./test_ctor_copy 
 #	./test_swap_assign 
