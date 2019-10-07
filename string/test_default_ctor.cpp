@@ -14,7 +14,7 @@ int main () {
   // Setup
 
   // Test 
-  String str = '\0';
+  String str;
 
   // Verify
   assert(str == "\0");

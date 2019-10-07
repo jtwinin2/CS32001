@@ -165,17 +165,18 @@ int String::findch(char ch) const {
   return findch(0, ch); 
 }
 
-//REQUIRES: 0 <= start <= length() - str.length() &&
-//          length() >= str.length()
-//ENSURES:  retval == i where str[i,..str.length()-1] == str
-//          retval == -1 if string not in str
-int String::findstr(int start, const String& st) const {
-  if ((start < 0) || (start > length() - st.length())) return -1;
-  if (length() < st.length()) return -1;
 
-  int i = start;
-  while ( (str[i] != 0) && (i <= length() - st.length()) ) {
-    if (st == substr(i, i+st.length()-1)) return i;
+
+int String::findstr(int pos, const String& st) const {
+  int i = pos;
+  if ((pos < 0) || (pos >= length() - st.length()))
+    return -1;
+  if (length() < st.length())
+    return -1;
+  
+  while ((str[i] != 0) && (i <= length() - st.length())) {
+    if (st == substr(i, i + st.length() - 1))
+      return i;
     ++i;
   }
   return -1;
