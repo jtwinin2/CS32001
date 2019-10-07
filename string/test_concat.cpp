@@ -67,7 +67,8 @@ int main ()
     String  str = "4iR3duiai97SJkLuKZ4xMCdeJLhxILSrcqfOVtJ6mwYkcflJwl";
     String str2 = "hPyHzAsrARMwRJSpCWAh11dsLaFt8uWz5haF2D";
     String result;
-    result = str+str2;
+    result = str;
+    result += str2;
     // VERIFY
     assert(result == "4iR3duiai97SJkLuKZ4xMCdeJLhxILSrcqfOVtJ6mwYkcflJwlhPyHzAsrARMwRJSpCWAh11dsLaFt8uWz5haF2D");
   }
