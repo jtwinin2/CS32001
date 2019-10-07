@@ -79,7 +79,7 @@ tests: $(MYCTOR) $(MYOPS) $(MYREL)
 	./test_equal 
 	./test_lessThan 
 	./test_concat 
-#	./test_subscript 
+	./test_subscript 
 #	./test_len_cap
 #	./test_input 
 #	./test_find_char 
