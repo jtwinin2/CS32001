@@ -11,7 +11,7 @@
 //===========================================================================
 int main ()
 {
-  std::ifstream file("data_input.txt");
+  std::ifstream file("data1_input.txt");
   if (file.is_open()) {
     String x;
     file >> x;

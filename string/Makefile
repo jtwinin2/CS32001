@@ -82,7 +82,7 @@ tests: $(MYCTOR) $(MYOPS) $(MYREL)
 	./test_subscript 
 	./test_len_cap
 	./test_input 
-#	./test_find_char 
+	./test_find_char 
 	./test_find_string 
 #	./test_substring
 #Milestone 2
