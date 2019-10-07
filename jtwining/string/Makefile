@@ -77,7 +77,7 @@ tests: $(MYCTOR) $(MYOPS) $(MYREL)
 	./test_ctor_char 
 	./test_ctor_charArray
 	./test_equal 
-#	./test_lessThan 
+	./test_lessThan 
 	./test_concat 
 #	./test_subscript 
 #	./test_len_cap
