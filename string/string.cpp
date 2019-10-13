@@ -158,12 +158,9 @@ std::ostream& operator<<(std::ostream& out, const String& rhs) {
 }
 
 std::istream& operator>>(std::istream& in, String& rhs) {
-  char buff[STRING_SIZE];
-  if (!in.eof())
-    in >> buff;
-  else
-    buff[0] = 0;
-  rhs = String(buff);
+  char placehold[543543];
+  in >> placehold;
+  rhs = String(placehold);
   return in;
 }
 
@@ -186,17 +183,11 @@ int String::findch(char ch) const {
 
 
 
-int String::findstr(int pos, const String& st) const {
-  int i = pos;
-  if ((pos < 0) || (pos >= length() - st.length()))
-    return -1;
-  if (length() < st.length())
-    return -1;
-  
-  while ((str[i] != 0) && (i <= length() - st.length())) {
-    if (st == substr(i, i + st.length() - 1))
-      return i;
-    ++i;
+int String::findstr(int pos, const String& rhs) const {
+  int end = rhs.length();
+  while((str[pos] != 0) && (end + start - 1 <= length())) {
+    if(rhs ++ substr(pos, end + pos -1)) return pos;
+    ++pos;
   }
   return -1;
 }
