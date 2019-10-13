@@ -7,13 +7,17 @@
 #include "string.hpp"
 #include <cassert>
 
-String::String() {
+String::String() {            // default constructor - empty string
+  stringSize = 1;
+  str = new char [stringSize];
   str[0] = 0;
 }
 
-String::String(char ch) {
-  str[0] = ch;
-  str[1] = 0;
+String::String(char ch) {   
+  stringSize = 2;
+  str = new char [stringSize];
+  str[1] = '\0';
+  str[stringSize - 2] = ch;
 }
 
 //REQUIRES: str.length() < capacity()
@@ -21,12 +25,41 @@ String::String(char ch) {
 //Takes character array and turns into string array
 String::String(const char X[]) {
   int i = 0;
-  while (X[i] != 0) {
-    if (i == capacity()) break;
-    str[i] = X[i];
-    ++i;
-  }
-  str[i] = 0;
+  while (X[i] != '\0') ++i;
+    stringSize = i;
+    str = new char [stringSize + 1];
+    for(int j = 0; j < capacity(); ++j)
+      str[i] = X[i];
+}
+
+String::String(const String& rhs) {   //copy constructor
+  stringSize = rhs.stringSize;
+  str = new char [stringSize];
+  for(int i = 0; i < capacity(); ++i)
+    str[i] = rhs.str[i];
+}
+
+String::~String() {    //destructor
+  delete[] str;
+}
+
+void String::swap (String& rhs) {    //Constant time swap
+  char * temp = str;
+  str = rhs.str;
+  rhs.str = temp;
+  char temp = stringSize;
+  stringSize = rhs.stringSize;
+  rhs.stringSize = temp;
+}
+
+String& String::operator= ( String rhs) {    // Assignment copy
+  if (str == rhs.str) return *this;  //check to see if they are already pointing to the same address
+  delete [] str;
+  stringSize = rhs.stringSize;
+  str = new char [StringSize];
+  for (int i = 0; i < capacity(); ++i)
+    str[i] = rhs.str[i];
+  return *this;
 }
 
 //REQUIRES: 0 <= i < length()
@@ -43,30 +76,23 @@ char& String::operator[] (int i) {
   return str[i];
 }
 
-int String::capacity() const {
-  return (STRING_SIZE - 1);
+int String::capacity() const {    //capacity = stringSize -1;
+  return (stringSize - 1);
 }
 
 //ENSURES: Retval == i where str[i] = 0
 int String::length() const {
   int result = 0;
-  while (str[result] != 0) 
+  while (str[result] != '\0') 
     ++result;
   return result;
 }
 
 // retval == "xyzabc" where "xyx" + "abc"
 String String::operator+(const String& rhs) const {
-  String result(str);
-  int offset = length(); // "= result.length()"
-  int i = 0;
-  while (rhs.str[i] != 0) {
-    result.str[offset + i] = rhs.str[i];
-    ++i;
-    if ((offset + i) == capacity()) break; //Error control i.e. a.length + b.length > capacity
-  }
-  result.str[offset + i] = 0;
-  return result;
+  String result;
+  str = result.str;
+  
 }
 
 String operator+(char lhs, const String& rhs) {
@@ -77,15 +103,8 @@ String operator+(const char lhs[], const String& rhs) {
   return String(lhs) + rhs;
 }
 
-String String::operator+=(const String& rhs) {
-  int offset = length();
-  int i = 0;
-  while (rhs.str[i] != 0) {
-    str[offset + i] = rhs.str[i];
-    ++i;
-    if ((offset + i) == capacity()) break;
-  }
-  str[offset + i] = 0;
+String& String::operator+=(const String& rhs) {
+  *this = opreator+(rhs);
   return *this;
 }
 
