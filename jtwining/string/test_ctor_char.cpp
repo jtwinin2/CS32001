@@ -37,10 +37,10 @@ int main ()
     // SETUP FIXTURE
 
     // TEST
-    String  str = "mn";
+    String  str = "n";
 
     // VERIFY
-    assert(str == "mn");
+    assert(str == "n");
   }
 
   std::cout << "Done testing Charactor Constructor." << std::endl;
