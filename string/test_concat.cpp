@@ -19,6 +19,7 @@ int main ()
     String str2 = "y";
     String result;
     result = str+str2;
+    std::cout<< str << " " << str2 << " " <<result<<std::endl;
     // VERIFY
     assert(result == "xy");
   }

@@ -26,10 +26,11 @@ String::String(char ch) {
 String::String(const char X[]) {
   int i = 0;
   while (X[i] != '\0') ++i;
-    stringSize = i;
-    str = new char [stringSize + 1];
-    for(int j = 0; j < capacity(); ++j)
-      str[i] = X[i];
+  stringSize = i + 1;
+  str = new char [stringSize];
+  for(int j = 0; j < capacity(); ++j)
+    str[j] = X[j];
+  str[capacity()] = 0;
 }
 
 String::String(const String& rhs) {   //copy constructor
@@ -91,15 +92,14 @@ int String::length() const {
 // retval == "xyzabc" where "xyx" + "abc"
 String String::operator+(const String& rhs) const {
   String result;
-  int offset= length();
-  int i=0;
-  while(rhs.str[i]!= '\0'){
-    result.str[offset + i]= rhs.str[i];
+  int offset = length();
+  int i = 0;
+  while(rhs.str[i] != 0) {
+    result.str[offset + i] = rhs.str[i];
     ++i;
-    if(offset + i == capacity()) break;
+    if (offset + i == capacity()) break;
   }
-  result.str[offset + i]=0;
-  return result;
+    return result;
 }
 
 String operator+(char lhs, const String& rhs) {
@@ -235,9 +235,9 @@ String::String (int n, const char ch[]) {                          //String(10, 
   str = new char [n];
   for (int i = 0; i < n; ++i)
     str[i] = ch[i];
-};                                                        
+}                                                        
 
-void    String::resetCapacity (int n ) {                            //Resets capacity to N, keeps string intact
+void  String::resetCapacity (int n ) {                            //Resets capacity to N, keeps string intact
   int smaller = stringSize;
   if (smaller > n) smaller = n;
   stringSize = n;
