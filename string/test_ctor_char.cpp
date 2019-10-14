@@ -15,10 +15,10 @@ int main ()
     // SETUP FIXTURE
 
     // TEST
-    String  str = "X";
+    String  s = "A";
 
     // VERIFY
-    assert(str == "X");
+    assert(s == "A");
   }
 
   {
@@ -26,10 +26,10 @@ int main ()
     // SETUP FIXTURE
 
     // TEST
-    String  str = "a";
-
+    String  s = "B";
+    std::cout<< s <<std::endl; ;
     // VERIFY
-    assert(str == "a");
+    assert(s == "B");
   }
 
   {
@@ -37,10 +37,10 @@ int main ()
     // SETUP FIXTURE
 
     // TEST
-    String  str = "n";
+    String  s = "n";
 
     // VERIFY
-    assert(str == "n");
+    assert(s == "n");
   }
 
   std::cout << "Done testing Charactor Constructor." << std::endl;

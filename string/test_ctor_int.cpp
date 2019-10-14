@@ -8,8 +8,12 @@
 #include <iostream>
 
 //===========================================================================
+
+
 int main ()
 {
+  String test;
+  test.test_String();
 
   std::cout << "Done testing Int Constructor." << std::endl;
 

@@ -47,34 +47,22 @@ public:
     String  substr        (int, int)                const;  //The sub-string from staring position to ending position
     int     findch        (int,  char)              const;  //Find location of charater starting at a position
     int     findstr       (int,  const String&)     const;  //Find location of str starting at a position
-
+    void    test_String   ();
     friend  std::ostream& operator<<(std::ostream&, const String&);
     friend  std::istream& operator>>(std::istream&, String&);
 
+
 private:
-  String (int n) {                                               //String(10) - capacity 10, empty string
-    stringSize = n;
-    str = new char [stringSize];
-    str[0] = 0;
-  }
 
-  String        (int n, const char ch[]) {                          //String(10, "abc") - capacity 10 with "abc"
-    stringSize  = n;
-    str = new char [n];
-    for (int i = 0; i < n; ++i)
-      str[i] = ch[i];
-  };                                                        
+  String (int n );                                               //String(10) - capacity 10, empty string
 
-  void    resetCapacity (int n ) {                            //Resets capacity to N, keeps string intact
-    int smaller = stringSize;
-    if (smaller > n) smaller = n;
-    stringSize = n;
-    char * tmp = new char [stringSize];
-    for (int i = 0; i < smaller; ++i)
-      tmp[i] = str[i];
-    delete [] str;
-    str = tmp;
-  }
+
+    String (int , const char []);                          //String(10, "abc") - capacity 10 with "abc"
+                    
+
+  void    resetCapacity (int);                            //Resets capacity to N, keeps string intact
+   
+
 
     char    *str;                                           //Pointer to char[]
     int     stringSize;                                     //Size includes NULL terminator
