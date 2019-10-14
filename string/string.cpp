@@ -44,19 +44,19 @@ String::~String() {    //destructor
 }
 
 void String::swap (String& rhs) {    //Constant time swap
-  char * temp = str;
+  char * temporary = str;
   str = rhs.str;
-  rhs.str = temp;
-  char temp = stringSize;
+  rhs.str = temporary;
+  int hold = stringSize;
   stringSize = rhs.stringSize;
-  rhs.stringSize = temp;
+  rhs.stringSize = hold;
 }
 
 String& String::operator= ( String rhs) {    // Assignment copy
   if (str == rhs.str) return *this;  //check to see if they are already pointing to the same address
   delete [] str;
   stringSize = rhs.stringSize;
-  str = new char [StringSize];
+  str = new char [stringSize];
   for (int i = 0; i < capacity(); ++i)
     str[i] = rhs.str[i];
   return *this;
@@ -91,8 +91,15 @@ int String::length() const {
 // retval == "xyzabc" where "xyx" + "abc"
 String String::operator+(const String& rhs) const {
   String result;
-  str = result.str;
-  
+  int offset= length();
+  int i=0;
+  while(rhs.str[i]!= '\0'){
+    result.str[offset + i]= rhs.str[i];
+    ++i;
+    if(offset + i == capacity()) break;
+  }
+  result.str[offset + i]=0;
+  return result;
 }
 
 String operator+(char lhs, const String& rhs) {
@@ -104,7 +111,7 @@ String operator+(const char lhs[], const String& rhs) {
 }
 
 String& String::operator+=(const String& rhs) {
-  *this = opreator+(rhs);
+  *this = operator+(rhs);
   return *this;
 }
 
@@ -177,17 +184,25 @@ int String::findch(int start, char ch) const {
   return -1;
 }
 
+/*
 int String::findch(char ch) const { 
   return findch(0, ch); 
 }
+*/
 
 
 
 int String::findstr(int pos, const String& rhs) const {
-  int end = rhs.length();
-  while((str[pos] != 0) && (end + start - 1 <= length())) {
-    if(rhs ++ substr(pos, end + pos -1)) return pos;
-    ++pos;
+  int i = pos;
+  if ((pos < 0) || (pos >= length() - rhs.length()))
+    return -1;
+  if (length() < rhs.length())
+    return -1;
+
+  while ((str[pos] != 0) && (rhs.length() + pos - 1 <= length())) {
+    if (rhs == substr(i, i + rhs.length() - 1))
+      return pos;
+    ++i;
   }
   return -1;
 }

@@ -92,10 +92,10 @@ int main ()
     // SETUP FIXTURE
 
     // TEST
-    String  str = "dF7VPENfJ956q58k7JDrHU4OS0IxQTq2zbhgkC2ZY5bRqKyO4AYfiKDxX8AZeQrI5P8luMYdUh4122BjVCD745IXmS08hlzCxdOQCnKW58ss0GFVAfYl6zW9GkblzXEX4rg83tqvEow4PPBiweQByAV1KP043kxehmDxl7O3Nhh3MeGv0dA64VU3a7ffw5F0k7OBDwHLDQFZQ5CebnaiU320LU3TpXuUmk22EyarkGVuCVrPktYJ01fe3lH6jin";
+    String  str = "peter piper picked a pair of pickled peppers";
 
     // VERIFY
-    assert(str == "dF7VPENfJ956q58k7JDrHU4OS0IxQTq2zbhgkC2ZY5bRqKyO4AYfiKDxX8AZeQrI5P8luMYdUh4122BjVCD745IXmS08hlzCxdOQCnKW58ss0GFVAfYl6zW9GkblzXEX4rg83tqvEow4PPBiweQByAV1KP043kxehmDxl7O3Nhh3MeGv0dA64VU3a7ffw5F0k7OBDwHLDQFZQ5CebnaiU320LU3TpXuUmk22EyarkGVuCVrPktYJ01fe3lH6jin");
+    assert(str == "peter piper picked a pair of pickled peppers");
   }
 
     

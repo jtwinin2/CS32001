@@ -26,9 +26,9 @@ int main ()
     // SETUP FIXTURE
 
     // TEST
-    String x = "k 0 n e";
+    String x = "k o n e";
     // VERIFY
-    assert(x[2] == '0');
+    assert(x[2] == 'o');
     assert(x[3] == ' ');
   }
 
@@ -37,7 +37,7 @@ int main ()
     // SETUP FIXTURE
 
     // TEST
-    String x = "Lnjc4WKOEszl60M";
+    String x = "Lnjc4WKOEszl6M";
     // VERIFY
     assert(x[5] == 'W');
     assert(x[0] == 'L');
@@ -77,40 +77,40 @@ int main ()
     // SETUP FIXTURE
 
     // TEST
-    String x = "WUol0RF5HTypoScgfRtrDfiDW7CsTA1j382H9KLYTwPHoLlzKHkFdtFfS0DVafDvQiLOZoly9A7";
+    String x = "WUolRF5HTypoScgfRtrDfiDW7CsTA1j382H9KLYTwPHoLlzKHkFdtFfSDVafDvQiLOZoly9A7";
     // VERIFY
-    assert(x[70] == 'l');
-    assert(x[60] == 'a');
+    assert(x[70] == '9');
+    assert(x[60] == 'D');
   }
   {
     //------------------------------------------------------
     // SETUP FIXTURE
 
     // TEST
-    String x = "fFqXvzFfDhfobjWaokBYtkWD0aa4iepHSg6jz6yoRK7InVRgdTw1guGWM4r7QKG8byh2SaGDjVNESEsDMc8uP8qZ6e2qYbv9bIYf3IdtYUuI3MORsCPHMJ0AJfcTdMo5nVq4emz32TeNQPGlE84rGU";
+    String x = "fFqXvzFfDhfobjWaokBYtkWDaa4iepHSg6jz6yoRK7InVRgdTw1guGWM4r7QKG8byh2SaGDjVNESEsDMc8uP8qZ6e2qYbv9bIYf3IdtYUuI3MORsCPHMJ0AJfcTdMo5nVq4emz32TeNQPGlE84rGU";
     // VERIFY  
-    assert(x[50] == 'w');
-    assert(x[75] == 'E');
+    assert(x[49] == 'w');
+    assert(x[74] == 'E');
   }
   {
     //------------------------------------------------------
     // SETUP FIXTURE
 
     // TEST
-    String x = "WK6ItTAvETlndVbRJDVRdKKHqlM2liee1YxvuZ11SnofgOVWUg1CT6KbweFCi92ZNYRf3hmVBjodvdZFnDs4UbMFrGeiHSjXASrpFqG1wwDQ1bJCIcRZbXQKTUTpmvUuIoFtQHYYjaMzKwzZxylmws4y5hNILS3KF8uzLNexv0xZwuREe8vmybo7Q7mj8snCAW4MBnoL";
+    String x = "WK6ItTAvETlndVbRJDVRdKKHqlM2liee1YxvuZ11SnofgOVWUg1CT6KbweFCi92ZNYRf3hmVBjodvdZFnDs4UbMFrGeiHSjXASrpFqG1wwDQ1bJCIcRZbXQKTUTpmvUuIoFtQHYYjaMzKwzZxylmws4y5hNILS3KF8uzLNexvxZwuREe8vmybo7Q7mj8snCAW4MBnoL";
     // VERIFY
     assert(x[100] == 'F');
-    assert(x[199] == 'L');
+    assert(x[198] == 'L');
   }
   {
     //------------------------------------------------------
     // SETUP FIXTURE
 
     // TEST
-    String x = "6WbZGyhXp4KNTNHQpynTBIVApXbTULpTAZblruf52VdJus1pUQYxQsKL4PNqRWw7ynYLQNcdui6fCdJNJvWSR7Rrrm4d0wzNofCKNedp7lTfuKR1v5e2WWeJqwueZHmaP5ltDbir11az0bDp3tT0GPX1ZBU7iNOfMrdO0ST4Fyr0IsRH2ZrZh8G4CFbntMfNyJj8mq8AhSEePCgceBUDjTAQcUTxjfpUmaAsOR7KqP04M20e2su0uyKfNpPjVmc";
+    String x = "6WbZGyhXp4KNTNHQpynTBIVApXbTULpTAZblruf52VdJus1pUQYxQsKL4PNqRWw7ynYLQNcdui6fCdJNJvWSR7Rrrm4dwzNofCKNedp7lTfuKR1v5e2WWeJqwueZHmaP5ltDbir11azbDp3tTGPX1ZBU7iNOfMrdOST4FyrIsRH2ZrZh8G4CFbntMfNyJj8mq8AhSEePCgceBUDjTAQcUTxjfpUmaAsOR7KqP4M2e2suuyKfNpPjVmc";
     // VERIFY
     assert(x[0] == '6');
-    assert(x[254] == 'c');
+    assert(x[246] == 'c');
   }
 
 
