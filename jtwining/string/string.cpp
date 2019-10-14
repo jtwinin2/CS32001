@@ -16,8 +16,8 @@ String::String() {            // default constructor - empty string
 String::String(char ch) {   
   stringSize = 2;
   str = new char [stringSize];
+  str[0] = ch;
   str[1] = '\0';
-  str[stringSize - 2] = ch;
 }
 
 //REQUIRES: str.length() < capacity()
@@ -118,7 +118,10 @@ String& String::operator+=(const String& rhs) {
 bool String::operator==(const String& rhs) const {
   int i = 0;
   while ((str[i] != 0) && (str[i] == rhs.str[i])) ++i;
-  return str[i] == rhs.str[i];
+  if( str[i] == rhs.str[i])
+    return true;
+  else
+    return false;
 }
 
 bool operator==(char lhs, const String& rhs) {
@@ -139,7 +142,7 @@ bool operator<(char lhs, const String& rhs) {
   return String(lhs) < rhs;
 }
 
-bool operator<(char lhs[], const String& rhs) {
+bool operator<(const char lhs[], const String& rhs) {
   return String(lhs) < rhs;
 }
 
@@ -221,4 +224,49 @@ String String::substr(int start, int end) const {
     ++i;
   }
   return result;
+}
+
+String::String (int n) {                                               //String(10) - capacity 10, empty string
+  stringSize = n;
+  str = new char [stringSize];
+  str[0] = 0;
+}
+
+String::String (int n, const char ch[]) {                          //String(10, "abc") - capacity 10 with "abc"
+  stringSize  = n;
+  str = new char [n];
+  for (int i = 0; i < n; ++i)
+    str[i] = ch[i];
+};                                                        
+
+void    String::resetCapacity (int n ) {                            //Resets capacity to N, keeps string intact
+  int smaller = stringSize;
+  if (smaller > n) smaller = n;
+  stringSize = n;
+  char * tmp = new char [stringSize];
+  for (int i = 0; i < smaller; ++i)
+    tmp[i] = str[i];
+  delete [] str;
+  str = tmp;
+}
+
+
+
+
+void String::test_String() {
+  String testing(5);
+  assert(testing.length() == 0);
+  assert(testing.capacity() == 5);
+
+  String test(15);
+  assert(test.length() == 0);
+  assert(test.capacity() == 15);
+
+  String tes(74);
+  assert(test.length() == 0);
+  assert(test.capacity() == 74);
+
+  String CharArray(10, "abc");
+  assert(CharArray.length() == 3);
+  assert(CharArray.capacity() == 10);
 }
