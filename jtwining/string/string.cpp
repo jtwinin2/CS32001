@@ -117,11 +117,8 @@ String& String::operator+=(const String& rhs) {
 
 bool String::operator==(const String& rhs) const {
   int i = 0;
-  while ((str[i] != 0) && (str[i] == rhs.str[i])) ++i;
-  if( str[i] == rhs.str[i])
-    return true;
-  else
-    return false;
+  while ((str[i] != '\0') && (str[i] == rhs.str[i])) ++i;
+  return str[i] == rhs.str[i];
 }
 
 bool operator==(char lhs, const String& rhs) {
@@ -168,11 +165,12 @@ std::ostream& operator<<(std::ostream& out, const String& rhs) {
 }
 
 std::istream& operator>>(std::istream& in, String& rhs) {
-  char placehold[543543];
+  char placehold[540000];
   in >> placehold;
   rhs = String(placehold);
   return in;
 }
+
 
 //REQUIRES: 0 <= start < length()
 //ENSURES:  retval == i where str[i] == ch && i >= start
@@ -249,8 +247,6 @@ void    String::resetCapacity (int n ) {                            //Resets cap
   delete [] str;
   str = tmp;
 }
-
-
 
 
 void String::test_String() {
