@@ -91,15 +91,19 @@ int String::length() const {
 
 // retval == "xyzabc" where "xyx" + "abc"
 String String::operator+(const String& rhs) const {
-  String result;
-  int offset = length();
+  char * c = new char [length() + rhs.stringSize];
   int i = 0;
-  while(rhs.str[i] != 0) {
-    result.str[offset + i] = rhs.str[i];
+  while( str[i] != 0) {
+    c[i] = str[i];
     ++i;
-    if (offset + i == capacity()) break;
   }
-    return result;
+  int j = 0;
+  while( rhs.str[j] != 0) {
+      c[i++] = rhs.str[j++];
+    }
+    c[i] = '\0';
+    String * k = new String(c);
+    return *k;
 }
 
 String operator+(char lhs, const String& rhs) {
