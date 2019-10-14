@@ -52,8 +52,11 @@ public:
     friend  std::istream& operator>>(std::istream&, String&);
 
 private:
-  String (int n) : capacity(n), length(0) {};                                   //String(10) - capacity 10, empty string
-    
+  String (int n) {                                               //String(10) - capacity 10, empty string
+    stringSize = n;
+    str = new char [stringSize];
+    str[0] = 0;
+  }
 
   String        (int n, const char ch[]) {                          //String(10, "abc") - capacity 10 with "abc"
     stringSize  = n;

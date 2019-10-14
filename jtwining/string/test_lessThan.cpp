@@ -100,8 +100,8 @@ int main ()
     // SETUP FIXTURE
 
     // TEST
-    String  str = "ASLKJSHDG:LSFGL:KSFGLKSJHFGLKJ";
-    String str2 = "x67R5RqEHFWqXXIp4C59p0Cjes4DbAlCgzOAPAne8JF77hffxcercQC5sLkseWCmFJuG4mdwFaCPMQ3QL46hZsoeXANw2kTOxEDPBg9UcSCChYyG08ueF5GgT3G3MxcwT6yZoGqehPxu4F0BoTK8q0Cb9OK1mWJ3PYuHbqnoQvG6TM8w6MRdDwzdlKgb2RF7KalrnBmFS93BwKMH4QwkKRBmJ7NODcEjnPbtXQEWd6HShcQfSV8jHskGKPr44";
+    String  str = "Peter Piper Picked a Pair of Pickeled PepPeRs";
+    String str2 = "Peter Piper Picked a Pair of Pickeled Peppers";
 
     // VERIFY
     assert( str < str2 );
@@ -113,7 +113,7 @@ int main ()
 
     // TEST
     String  str = "'";
-    String str2 = "uod9NMp2AwTWenIzhPq6NpF3L0uSmZygI8kw1Y0bZrKYsgr2jFxgfUM8UOOgc2K8HuUCgO5JaPOW34WXMCyHoApfIwMRuVwBrhUSUJ7QOZGsz5fpxrEzWJcLn0TtbAlGO7rnrPvu7xXvxpZQV6gUU4ftWVJuHWd7SPaT2BQKARSPFsVjTuxBItoo6nCPbBLemifKfrIUXKmVuFEQ30OjoURYFbf3tUUG1DPVbvoGBNUYo7L3iZxD5DBwnbBtm";
+    String str2 = "jklresfhh";
 
     // VERIFY
     assert( str < str2 );
