@@ -189,24 +189,22 @@ int String::findch(int start, char ch) const {
   return -1;
 }
 
-/*
-int String::findch(char ch) const { 
-  return findch(0, ch); 
-}
-*/
-
 
 
 int String::findstr(int pos, const String& rhs) const {
   int i = pos;
-  if ((pos < 0) || (pos >= length() - rhs.length()))
+  if ((pos < 0) || (pos >= length()))
     return -1;
   if (length() < rhs.length())
     return -1;
-
-  while ((str[pos] != 0) && (rhs.length() + pos - 1 <= length())) {
-    if (rhs == substr(i, i + rhs.length() - 1))
-      return pos;
+  char *c = new char[rhs.stringSize];
+  while ((str[i] != 0)) {
+    for(int k = 0 ; (i+k)< (length() + 1) && k<rhs.length(); k++){
+      c[k] = str[i+k];
+    }
+    if (rhs == c){
+      return i;
+    }
     ++i;
   }
   return -1;
