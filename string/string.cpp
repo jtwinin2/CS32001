@@ -228,8 +228,21 @@ String String::substr(int start, int end) const {
   return *k;
 }
 
-String String::split(char space) const {
-
+std::vector<String> String::split(char sep) const {
+  int start = 0;
+  int end;
+  std::vector<String> strings;
+  end = findch(start,sep);                  // Get the first index
+  while( end != -1) {                          // loop that continues till we reach the end of string or we do not find sep in the string starting from position start
+      strings.push_back(substr(start,end-1)); // push the substring from start to end-1
+      start = end+1;                           // set start to next character after end
+      end = findch(start,sep); // get the index of sep after start
+    }
+                                                 // push the last word, if any into the vector
+  if(start <= length()){
+      strings.push_back(substr(start,length()-1));
+    }  
+  return strings;
 }
 
 
