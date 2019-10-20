@@ -6,6 +6,7 @@
 #include <iostream>
 #include "string.hpp"
 #include <cassert>
+#include <vector>
 
 String::String() {            // default constructor - empty string
   stringSize = 1;
@@ -226,6 +227,15 @@ String String::substr(int start, int end) const {
   String *k = new String(result);
   return *k;
 }
+
+String String::split(char space) const {
+
+}
+
+
+
+/////////////////////////////////////////////////////////////////// 
+//  Private definitions and tests
 
 String::String (int n) {                                               //String(10) - capacity 10, empty string
   stringSize = n;
