@@ -20,7 +20,7 @@
 #define CS23001_STRING_INTERFACE_HPP
 
 #include <iostream>
-
+#include <vector>
 
 ////////////////////////////////////////////////////
 // CLASS INV: str[length()] == 0             &&
@@ -48,7 +48,7 @@ public:
     int     findch        (int,  char)              const;  //Find location of charater starting at a position
     int     findstr       (int,  const String&)     const;  //Find location of str starting at a position
     void    test_String   ();
-    String  split         (char)                    const;  //Splits a String based on a supplie character 
+            std::vector<String> split   (char)      const;  //Splits a String based on a supplie character 
     friend  std::ostream& operator<<(std::ostream&, const String&);
     friend  std::istream& operator>>(std::istream&, String&);
 

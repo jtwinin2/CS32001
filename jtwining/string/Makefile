@@ -90,7 +90,7 @@ tests: $(MYCTOR) $(MYOPS) $(MYREL) $(MYM2)
 	./test_swap_assign 
 	./test_ctor_int 
 	./test_ctor_charArray_in
-#	./test_split
+	./test_split
 
 ###############################################################
 # Compile all test programs
@@ -112,8 +112,8 @@ oracle: $(CTOR) $(REL) $(COPY) $(OPS)
 	./testoracle_equal 
 	./testoracle_ctor_char 
 	./testoracle_ctor_charArray
-#	./testoracle_ctor_charArray_int 
-#	./testoracle_ctor_int
+	./testoracle_ctor_charArray_int 
+	./testoracle_ctor_int
 	./testoracle_ctor_copy 
 	./testoracle_assign
 	./testoracle_swap_assign
@@ -125,7 +125,7 @@ oracle: $(CTOR) $(REL) $(COPY) $(OPS)
 	./testoracle_substring
 	./testoracle_find_char 
 	./testoracle_find_string 
-#	./testoracle_split
+	./testoracle_split
 
 ###############################################################
 # Run test oracle with valgrind for Milestone 2 and 3
