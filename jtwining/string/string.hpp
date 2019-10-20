@@ -48,22 +48,17 @@ public:
     int     findch        (int,  char)              const;  //Find location of charater starting at a position
     int     findstr       (int,  const String&)     const;  //Find location of str starting at a position
     void    test_String   ();
+    String  split         (char)                    const;  //Splits a String based on a supplie character 
     friend  std::ostream& operator<<(std::ostream&, const String&);
     friend  std::istream& operator>>(std::istream&, String&);
 
 
 private:
 
-  String (int n );                                               //String(10) - capacity 10, empty string
-
-
-    String (int , const char []);                          //String(10, "abc") - capacity 10 with "abc"
-                    
-
-  void    resetCapacity (int);                            //Resets capacity to N, keeps string intact
+    String                (int n );                                               //String(10) - capacity 10, empty string
+    String                (int , const char []);                          //String(10, "abc") - capacity 10 with "abc"
+    void    resetCapacity (int);                            //Resets capacity to N, keeps string intact
    
-
-
     char    *str;                                           //Pointer to char[]
     int     stringSize;                                     //Size includes NULL terminator
 };
