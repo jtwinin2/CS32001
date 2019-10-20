@@ -32,14 +32,13 @@ int main ()
     assert (str.substr( 6 , 10) == "fxH11" );
   }
   {
-    String str = "5d5vi9ckElk3cYOMIEAoXGukX";
-
-    assert (str.substr( 8 , 16) == "Elk3cYOMI" );
+    String str = "FhgEgdsswgegl";
+    assert (str.substr( 8 , 12) == "wgegl" );
   }
   {
-    String str = "S2CTS9yw7YiYeROUUXUqsLWd1TZUlTTs9xMhvDuZy1cf9YwTdm";
+    String str = "S2CTS9yw7YiYeRfsUXUqsLWd1TZUlTTs9xMhvDuZy1cf9YwTdm";
 
-    assert (str.substr( 0 , 40) == "S2CTS9yw7YiYeROUUXUqsLWd1TZUlTTs9xMhvDuZy" );
+    assert (str.substr( 0 , 20) == "S2CTS9yw7YiYeRfsUXUqs" );
   }
   {
     String str = "yPB4Tn9NG9kKODTKQCv4EXY1YNpTnY2SWck4A8CNvoviRHvCCnMsWjou61s3t9y9kC8u9pW8zsA";

@@ -213,22 +213,18 @@ int String::findstr(int pos, const String& rhs) const {
 //REQUIRES: 0 <= start <= end < length()
 //ENSURES:  retval == s[start, ..., end]
 String String::substr(int start, int end) const {
-  if (start == end) {
-    return String(str[start]);
+  if (start < 0) return String();
+  if (start > end) return String();
+  if (end >= length()) return String();
+ 
+ String result;
+  int i = start;
+  while (i <= end) {
+    result += str[i];
+    ++i;
   }
-  else if (start > end) {
-    return "";
-  }
-  String returning(end - start + 2);
-  int i;
-  int x = 0;
-  
-  for (i = start; i <= end; ++i) {
-    returning.str[x] = str[i];
-    ++x;
-  }
-  returning[i] = '\0';
-  return returning;
+  String *k = new String(result);
+  return *k;
 }
 
 String::String (int n) {                                               //String(10) - capacity 10, empty string
