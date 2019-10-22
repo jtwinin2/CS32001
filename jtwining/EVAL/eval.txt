@@ -8,7 +8,7 @@ Bonus--
 Project 2 
 M1-- 80, tests cases are not passing, fix them and ask for regrade
 M2-- 99, testoracle_subscript is not passing 
-M3--
+M3-- 60, no test for split, it also sodes not pass the oracle tests
 M4--
 Bonus-- 
 
