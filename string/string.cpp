@@ -67,7 +67,7 @@ String& String::operator= ( String rhs) {    // Assignment copy
 //REQUIRES: 0 <= i < length()
 // operator[] const --- allows access to const objects
 char String::operator[](int i) const {
-  assert( (i > 0) && (i < length()) );
+  assert( (i >= 0) && (i < length()) );
   return str[i];
 }
 
@@ -170,7 +170,7 @@ std::ostream& operator<<(std::ostream& out, const String& rhs) {
 }
 
 std::istream& operator>>(std::istream& in, String& rhs) {
-  char placehold[540000];
+  char placehold[5499999];
   in >> placehold;
   rhs = String(placehold);
   return in;
@@ -287,4 +287,8 @@ void String::test_String() {
   String CharArray(10, "abc");
   assert(CharArray.length() == 3);
   assert(CharArray.capacity() == 10);
+
+  String CharArra(12, "xyza");
+  assert(CharArra.length() == 4);
+  assert(CharArra.capacity() == 12);
 }
