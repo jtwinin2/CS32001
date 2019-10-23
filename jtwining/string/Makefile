@@ -89,7 +89,7 @@ tests: $(MYCTOR) $(MYOPS) $(MYREL) $(MYM2)
 	./test_ctor_copy 
 	./test_swap_assign 
 	./test_ctor_int 
-	./test_ctor_charArray_in
+	./test_ctor_charArray_int
 	./test_split
 
 ###############################################################

@@ -251,13 +251,13 @@ std::vector<String> String::split(char sep) const {
 //  Private definitions and tests
 
 String::String (int n) {                                               //String(10) - capacity 10, empty string
-  stringSize = n;
+  stringSize = n + 1;
   str = new char [stringSize];
   str[0] = 0;
 }
 
 String::String (int n, const char ch[]) {                          //String(10, "abc") - capacity 10 with "abc"
-  stringSize  = n;
+  stringSize  = n + 1;
   str = new char [n];
   for (int i = 0; i < n; ++i)
     str[i] = ch[i];
@@ -283,10 +283,6 @@ void String::test_String() {
   String test(15);
   assert(test.length() == 0);
   assert(test.capacity() == 15);
-
-  String tes(74);
-  assert(test.length() == 0);
-  assert(test.capacity() == 74);
 
   String CharArray(10, "abc");
   assert(CharArray.length() == 3);
