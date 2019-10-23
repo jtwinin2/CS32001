@@ -291,4 +291,8 @@ void String::test_String() {
   String CharArra(12, "xyza");
   assert(CharArra.length() == 4);
   assert(CharArra.capacity() == 12);
+
+  String CharArr(4, "x");
+  assert(CharArr.length() == 1);
+  assert(CharArr.capacity() == 4);
 }

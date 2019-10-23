@@ -112,7 +112,7 @@ oracle: $(CTOR) $(REL) $(COPY) $(OPS)
 	./testoracle_equal 
 	./testoracle_ctor_char 
 	./testoracle_ctor_charArray
-#	./testoracle_ctor_charArray_int 
+	./testoracle_ctor_charArray_int 
 	./testoracle_ctor_int
 	./testoracle_ctor_copy 
 	./testoracle_assign
