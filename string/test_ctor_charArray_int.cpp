@@ -10,6 +10,8 @@
 //===========================================================================
 int main ()
 {
+  String test;
+  test.test_String();
 
   std::cout << "Done testing Private Char Array Constructor." << std::endl;
 
