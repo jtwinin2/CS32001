@@ -258,8 +258,9 @@ String::String (int n) {                                               //String(
 
 String::String (int n, const char ch[]) {                          //String(10, "abc") - capacity 10 with "abc"
   stringSize  = n + 1;
-  str = new char [n];
-  for (int i = 0; i < n; ++i)
+  str = new char [stringSize];
+  int i;
+  for (i = 0; (i < n) && ch[i] != '\0'; ++i)
     str[i] = ch[i];
 }                                                        
 
