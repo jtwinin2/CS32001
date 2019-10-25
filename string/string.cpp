@@ -170,7 +170,7 @@ std::ostream& operator<<(std::ostream& out, const String& rhs) {
 }
 
 std::istream& operator>>(std::istream& in, String& rhs) {
-  char placehold[5499999];
+  char placehold[549789];
   in >> placehold;
   rhs = String(placehold);
   return in;
@@ -216,8 +216,8 @@ int String::findstr(int pos, const String& rhs) const {
 String String::substr(int start, int end) const {
   if (start < 0) return String();
   if (start > end) return String();
-  if (end >= length()) return String();
- 
+  if (end > length()) end = length() - 1;
+  
  String result;
   int i = start;
   while (i <= end) {
@@ -232,13 +232,13 @@ std::vector<String> String::split(char sep) const {
   int start = 0;
   int end;
   std::vector<String> strings;
-  end = findch(start,sep);                  // Get the first index
-  while( end != -1) {                          // loop that continues till we reach the end of string or we do not find sep in the string starting from position start
-      strings.push_back(substr(start,end-1)); // push the substring from start to end-1
-      start = end+1;                           // set start to next character after end
-      end = findch(start,sep); // get the index of sep after start
+  end = findch(start,sep);             
+  while( end != -1) {                          
+      strings.push_back(substr(start,end-1)); 
+      start = end+1;                          
+      end = findch(start,sep); 
     }
-                                                 // push the last word, if any into the vector
+                                                
   if(start <= length()){
       strings.push_back(substr(start,length()-1));
     }  

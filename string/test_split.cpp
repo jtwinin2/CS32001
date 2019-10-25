@@ -37,6 +37,14 @@ int main ()
     assert(test[4] == "");
 
   }
+  {
+    std::vector<String> test = String("O Come").split(' ');
+
+    assert(test[0] == "O");
+    assert(test[1] == "Come");
+
+  }
+
 
   std::cout << "Done testing Split." << std::endl;
 

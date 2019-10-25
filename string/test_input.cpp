@@ -15,17 +15,16 @@ int main ()
   if (file.is_open()) {
     String x;
     file >> x;
-    assert(x == "hello");
+    assert(x == "131.123.47.176");
     file >> x;
-    assert(x == "world");
+    assert(x == "-");
     file >> x;
-    assert(x == "my");
+    assert(x == "-");
     file >> x;
-    assert(x == "name"); 
+    assert(x == "[18/Sep/2002:12:05:25"); 
     file >> x;
-    assert(x == "is"); 
-    file >> x;
-    assert(x == "Justin");
+    assert(x == "-0400]"); 
+   
   }
   else {
     std::cout << "Unable to open file" << std::endl;
