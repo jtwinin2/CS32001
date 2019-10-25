@@ -259,9 +259,12 @@ String::String (int n) {                                               //String(
 String::String (int n, const char ch[]) {                          //String(10, "abc") - capacity 10 with "abc"
   stringSize  = n + 1;
   str = new char [stringSize];
-  int i;
-  for (i = 0; (i < n) && ch[i] != '\0'; ++i)
+  int i = 0;
+  while (ch[i] != '\0'){
     str[i] = ch[i];
+    ++i;
+    }
+  str[i] = '\0';
 }                                                        
 
 void  String::resetCapacity (int n ) {                            //Resets capacity to N, keeps string intact
