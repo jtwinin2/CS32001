@@ -29,15 +29,18 @@ String::String(const char X[]) {
   while (X[i] != '\0') ++i;
   stringSize = i + 1;
   str = new char [stringSize];
-  for(int j = 0; j < capacity(); ++j)
+  int j = 0;
+  while ( X[j] != '\0') {
     str[j] = X[j];
-  str[capacity()] = 0;
+    ++j;
+  }
+  str[j] = '\0';
 }
 
 String::String(const String& rhs) {   //copy constructor
   stringSize = rhs.stringSize;
   str = new char [stringSize];
-  for(int i = 0; i < capacity(); ++i)
+  for(int i = 0; i < stringSize; ++i)
     str[i] = rhs.str[i];
 }
 
@@ -100,8 +103,7 @@ String String::operator+(const String& rhs) const {
       c[i++] = rhs.str[j++];
     }
     c[i] = '\0';
-    String * k = new String(c);
-    return *k;
+    return String(c);
 }
 
 String operator+(char lhs, const String& rhs) {

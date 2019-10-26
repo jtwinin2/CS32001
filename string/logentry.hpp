@@ -6,8 +6,8 @@
 // File:        logentry.hpp 
 //       
 // Version:     1.0
-// Date:        
-// Author:      
+// Date: 10/24/2019        
+// Author: Justin Twining     
 //
 // Description: Class definition for a log entry.
 //
@@ -23,7 +23,12 @@
 ////////////////////////////////////////////////////////////
 class Date { 
 public:
-            Date() {};
+  Date() {day = String(); month = String(); year = 0};
+  Date (String, String, int);
+  String getday() const {return day; };
+  String getmonth() const { return month; };
+  int getyear() const { return year; };
+
 private:
     String  day, month;
     int     year;
@@ -33,6 +38,11 @@ private:
 class Time {
   public:
             Time() {};
+  Time( int, int, int);
+  int gethour () const { return hour; };
+  int getmin () const { return minute; };
+  int getsec () const { return second; };
+  
   private:
     int     hour, minute, second;
 };
@@ -43,6 +53,9 @@ class LogEntry {
 public:
             LogEntry() {};
             LogEntry(String);
+  String gethost () const { return host; };
+  String getbyte () const { return number_of_bytes; };
+
     friend  std::ostream& operator<<(std::ostream&, const LogEntry&);
 
 private:
