@@ -107,19 +107,7 @@ int main ()
     String result;
     result = str+str2;
     // VERIFY
-    assert(result == "pqLUwBCwUTiDxDMq1RMkd2TlsoBJ1eqrIs7nqEfsJ2KmIe2rWQKqxVWfyMq1epgMAaCfMos4LOOq7AeeX53qup16IxxD5svJyfAA8R7iN49S1uVx5KXnTq8IZVgieqV1q4dcgFHyXo5rpFU6ACfTfU2TRQGSDpBrFayl1ki5OkaFrC7l83Sp7AdBI1BEyJlLig1RRy");
-  }
-  {
-    //------------------------------------------------------
-    // SETUP FIXTURE
-
-    // TEST
-    String  str = "cdQxjiMyWwZYGH1xHaZYOKdg8KMjiPFBR6IGwOmxHMh67QeyILeDQwdpHLDPUWzPE9qWLlGLPJEB6UJ7vHB5XwboIXSI7NGG93uogADBmBxzCiBaGey8Sf";
-    String str2 = "pBURCWWitKFnz88bYNhcdGhqmWK9PO9WiHLlHZd581Lc";
-    String result;
-    result = str+str2;
-    // VERIFY
-    assert(result == "cdQxjiMyWwZYGH1xHaZYOKdg8KMjiPFBR6IGwOmxHMh67QeyILeDQwdpHLDPUWzPE9qWLlGLPJEB6UJ7vHB5XwboIXSI7NGG93uogADBmBxzCiBaGey8SfpBURCWWitKFnz88bYNhcdGhqmWK9PO9WiHLlHZd581Lc");
+    assert( result == "pqLUwBCwUTiDxDMq1RMkd2TlsoBJ1eqrIs7nqEfsJ2KmIe2rWQKqxVWfyMq1epgMAaCfMos4LOOq7AeeX53qup16IxxD5svJyfAA8R7iN49S1uVx5KXnTq8IZVgieqV1q4dcgFHyXo5rpFU6ACfTfU2TRQGSDpBrFayl1ki5OkaFrC7l83Sp7AdBI1BEyJlLig1RRy");
   }
   {
     //------------------------------------------------------

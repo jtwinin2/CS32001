@@ -121,7 +121,7 @@ oracle: $(CTOR) $(REL) $(COPY) $(OPS)
 	./testoracle_concat
 	./testoracle_subscript 
 	./testoracle_len_cap 
-#	./testoracle_input 	
+	./testoracle_input 	
 	./testoracle_substring
 	./testoracle_find_char 
 	./testoracle_find_string 
