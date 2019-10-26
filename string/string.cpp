@@ -55,12 +55,9 @@ void String::swap (String& rhs) {    //Constant time swap
 }
 
 String& String::operator= ( String rhs) {    // Assignment copy
-  if (str == rhs.str) return *this;  //check to see if they are already pointing to the same address
-  delete [] str;
-  stringSize = rhs.stringSize;
-  str = new char [stringSize];
-  for (int i = 0; i < capacity(); ++i)
-    str[i] = rhs.str[i];
+  if (str == rhs.str) return *this; 
+  else
+    swap(rhs);
   return *this;
 }
 
@@ -169,9 +166,12 @@ std::ostream& operator<<(std::ostream& out, const String& rhs) {
   return out;
 }
 
-std::istream& operator>>(std::istream& in, String& rhs) {
+std::istream& operator>>(std::istream& in, String& rhs){
   char placehold[549789];
-  in >> placehold;
+  if(!in.eof())
+    in >> placehold;
+  else
+    placehold[0] = 0;
   rhs = String(placehold);
   return in;
 }
@@ -234,14 +234,14 @@ std::vector<String> String::split(char sep) const {
   std::vector<String> strings;
   end = findch(start,sep);             
   while( end != -1) {                          
-      strings.push_back(substr(start,end-1)); 
-      start = end+1;                          
-      end = findch(start,sep); 
-    }
+    strings.push_back(substr(start,end-1)); 
+    start = end+1;                          
+    end = findch(start,sep); 
+  }
                                                 
   if(start <= length()){
-      strings.push_back(substr(start,length()-1));
-    }  
+    strings.push_back(substr(start,length()-1));
+  }  
   return strings;
 }
 
