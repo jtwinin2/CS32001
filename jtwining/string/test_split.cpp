@@ -57,12 +57,6 @@ int main ()
     assert(test[4] == "hello");
 
   }
-  {
-    std::vector<String> test = String(" ").split(' ');
-    std::cout<<test[0] <<"\n";
-    assert(test[0] == " ");
-
-  }
 
 
   std::cout << "Done testing Split." << std::endl;
