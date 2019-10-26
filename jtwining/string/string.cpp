@@ -218,32 +218,35 @@ String String::substr(int start, int end) const {
   if (start > end) return String();
   if (end > length()) end = length() - 1;
   
- String result;
+  String result(end - start + 2);
   int i = start;
-  while (i <= end) {
-    result += str[i];
+  while ((i <= end) && (str[i] != '\0')) {
+    result.str[i-start] = str[i];
     ++i;
   }
-  String *k = new String(result);
-  return *k;
+  result.str[i-start] = 0;
+  return result;
 }
 
 std::vector<String> String::split(char sep) const {
   int start = 0;
   int end;
   std::vector<String> strings;
-  end = findch(start,sep);             
-  while( end != -1) {                          
-    strings.push_back(substr(start,end-1)); 
-    start = end+1;                          
-    end = findch(start,sep); 
+  end = findch(start,sep);
+  while( end != -1) {
+    strings.push_back(substr(start,end-1));
+    start = end+1;
+    end = findch(start,sep);
   }
-                                                
+  if(start == end) {
+    strings.push_back("");
+  }
   if(start <= length()){
     strings.push_back(substr(start,length()-1));
-  }  
+  }
   return strings;
 }
+  
 
 
 

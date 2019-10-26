@@ -50,12 +50,6 @@ int main ()
 
     assert (str.substr( 41 , 47 ) == "HPDBLQW" );
   }
-  {
-    String str = "wKttpwIrDHyV8aEm9bSra1j2JwxFWzevHZl6kXSTmNaljn5Ct1g2sEgTBSOwfDDGIcWT1cQW8tmkaKcz1Xfdpz6vBcfXyAFfzovJNPjRQcYwGv4OMSOM6j6HW9ulnRLfd83jP6g2Y4K6J2OgnbeWvB5oBEdMPoXdD7CIKWVVGN98nBL2AjnnvwztjqvzpHY4mz3LCSCn";
-
-    assert (str.substr( 30 , 45) == "evHZl6kXSTmNaljn" );
-  }
-
 
   std::cout << "Done testing SubString." << std::endl;
 
