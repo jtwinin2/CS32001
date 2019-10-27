@@ -52,8 +52,9 @@ public:
     friend  std::ostream& operator<<(std::ostream&, const String&);
     friend  std::istream& operator>>(std::istream&, String&);
   
-    int     intconvert ();                                  // Converts a String to integers - Milestone 4
-  
+    int     intConvert    ();                                  // Converts a String to integers - Milestone 4
+    String  getline       (std::istream&);                    // Milestone 4
+
 private:
 
     String                (int n );                                               //String(10) - capacity 10, empty string

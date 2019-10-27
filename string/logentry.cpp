@@ -127,7 +127,7 @@ std::ostream& operator<< ( std::ostream& out, const LogEntry& log) {
 // ENSURES: output of everything in the vector on its own line
 //
 void output_all(std::ostream& out, const std::vector<LogEntry> &log) {
-  for( int i = 0; i < log.size(); ++i)
+  for( unsigned int i = 0; i < log.size(); ++i)
     out << log[i] << std::endl;
 }
 
@@ -136,7 +136,7 @@ void output_all(std::ostream& out, const std::vector<LogEntry> &log) {
 // ENSURES: Outputs the host of each LogEntry object
 //
 void by_host(std::ostream& out, const std::vector<LogEntry>& logs) {
-  for ( int i = 0; i < logs.size(); ++i){
+  for ( unsigned int i = 0; i < logs.size(); ++i){
     out << logs[i].gethost() << std::endl;
   }
 }
@@ -147,8 +147,8 @@ void by_host(std::ostream& out, const std::vector<LogEntry>& logs) {
 //
 int byte_count(const std::vector<LogEntry> & log) {
   int sum = 0;
-  for( int i = 0; i < log.size(); ++i) {
-    sum += log[i].getbytes();
+  for( unsigned int i = 0; i < log.size(); ++i) {
+    sum += log[i].getbyte();
   }
     return sum;
 }
