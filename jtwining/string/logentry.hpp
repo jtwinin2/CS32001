@@ -83,7 +83,6 @@ std::vector<LogEntry>   parse       (std::istream&);
 void                    output_all  (std::ostream&, const std::vector<LogEntry> &);
 void                    by_host     (std::ostream&, const std::vector<LogEntry> &);
 int                     byte_count  (const std::vector<LogEntry>&);
-String                  getline     (std::istream&);
 
 #endif
 
