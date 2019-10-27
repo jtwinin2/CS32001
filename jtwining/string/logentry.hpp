@@ -60,7 +60,7 @@ public:
          LogEntry() {};
          LogEntry(String);
   String gethost () const { return host; };
-  String getbyte () const { return number_of_bytes; };
+  int    getbyte () const { return number_of_bytes; };
 
     friend  std::ostream& operator<<(std::ostream&, const LogEntry&);
 
