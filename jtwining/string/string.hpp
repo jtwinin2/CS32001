@@ -51,8 +51,9 @@ public:
             std::vector<String> split   (char)      const;  //Splits a String based on a supplie character 
     friend  std::ostream& operator<<(std::ostream&, const String&);
     friend  std::istream& operator>>(std::istream&, String&);
-
-
+  
+    int     intconvert ();                                  // Converts a String to integers - Milestone 4
+  
 private:
 
     String                (int n );                                               //String(10) - capacity 10, empty string

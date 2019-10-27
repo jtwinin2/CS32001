@@ -23,11 +23,14 @@
 ////////////////////////////////////////////////////////////
 class Date { 
 public:
-  Date() {day = String(); month = String(); year = 0};
-  Date (String, String, int);
-  String getday() const {return day; };
-  String getmonth() const { return month; };
-  int getyear() const { return year; };
+  Date            ()             {};
+  void   setday   (String getDate)  { day = getDate;   };
+  void   setmonth ( String getDate) { month = getDate; };
+  void   setyear  (int getDate)     { year = getDate;  };
+
+  String getday   () const       { return day;   };
+  String getmonth () const       { return month; };
+  int    getyear  () const       { return year;  };
 
 private:
     String  day, month;
@@ -38,10 +41,13 @@ private:
 class Time {
   public:
             Time() {};
-  Time( int, int, int);
-  int gethour () const { return hour; };
-  int getmin () const { return minute; };
-  int getsec () const { return second; };
+  void sethour   (int linevalue) { hour = linevalue; };
+  void setminute (int linevalue) { minute = linevalue; };
+  void setsecond (int linevalue) { second = linevalue; };
+
+  int  gethour   () const        { return hour; };
+  int  getmin    () const        { return minute; };
+  int  getsec    () const        { return second; };
   
   private:
     int     hour, minute, second;
@@ -51,8 +57,8 @@ class Time {
 ////////////////////////////////////////////////////////////
 class LogEntry {
 public:
-            LogEntry() {};
-            LogEntry(String);
+         LogEntry() {};
+         LogEntry(String);
   String gethost () const { return host; };
   String getbyte () const { return number_of_bytes; };
 
@@ -77,6 +83,7 @@ std::vector<LogEntry>   parse       (std::istream&);
 void                    output_all  (std::ostream&, const std::vector<LogEntry> &);
 void                    by_host     (std::ostream&, const std::vector<LogEntry> &);
 int                     byte_count  (const std::vector<LogEntry>&);
+String                  getline     (std::istream&);
 
 #endif
 
