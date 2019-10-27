@@ -23,12 +23,13 @@
 // ENSURES: LogEntry is placed into their respective valuse from  the input file
 //
 LogEntry::LogEntry(String s) {
-
+  std::cout << std::endl << s << std::endl;
     std::vector<String> vec = s.split(' ');
-
+    std::cout << vec[9] << std::endl;
     if (vec.size() == 10){
       host = vec[0];  // Host is Placed in the first vector
                       // vec[1] + vec[2] are both just a -
+ 
       std::vector<String> DateAndTime = vec[3].split(':');    // vec[3] holds date and time and needs to be split again to separate into each.
                                                               // DateAndTime[0] = full date (day,month,year)
                                                               //DateAndTime[1] = hours , DateAndTime[2] = minutes , DateAndTime[3] = seconds
@@ -57,12 +58,9 @@ LogEntry::LogEntry(String s) {
       if (vec[9] == '-') {
 	number_of_bytes = 0;
       }
-      else {
-	number_of_bytes = vec[9].intConvert();
-      }
-      
+      number_of_bytes = vec[9].intConvert();
+      std::cout << vec[9].intConvert() << std::endl;
     }
-
     else {                        // if vec.size != 10
 	host = String();
 	date = Date();
@@ -78,27 +76,29 @@ LogEntry::LogEntry(String s) {
 // ENSURES: vector result is loaded with LogEntry input.
 //
 std::vector<LogEntry> parse(std::istream& in) {
-    std::vector<LogEntry> result;
-    char ch;
-    while (!in.eof()){
-      String x;
-      in.get(ch);
-      while( ch != '\n'){
-	while ( !in.eof()){
-	  x = x + ch;
-	  in.get(ch);
-	}
+  std::vector<LogEntry> result;
+  char temp;
+  while (!in.eof()){
+    String x;
+    in >> temp;
+    while( temp != '\n'){
+      while ( !in.eof()){
+        x = x + temp;
+        in.get(temp);
       }
-      result.push_back(x);
-    }  
-    return result;
+    }
+    result.push_back(x);
+  }
+  return result;
 }
+
 
 /////////////////////////////////////////////////////////
 // REQUIRES:A file to already be passed in and log to have been given values
 // ENSURES: outputs LogEntry in an organized list
 //
 std::ostream& operator<< ( std::ostream& out, const LogEntry& log) {
+  out << std::endl;
   out << "Host: " << log.host << std::endl;
   out << std::endl;
 
@@ -147,24 +147,9 @@ void by_host(std::ostream& out, const std::vector<LogEntry>& logs) {
 //
 int byte_count(const std::vector<LogEntry> & log) {
   int sum = 0;
-  for( unsigned int i = 0; i < log.size(); ++i) {
-    sum += log[i].getbyte();
+  for ( unsigned int i = 0; i < log.size(); ++i) {
+    sum = sum + log[i].getbyte();
   }
     return sum;
 }
 
-/////////////////////////////////////////////////////////
-//
-//
- String String::getline(std::istream& in) {
-   String getDate;
-   char ch = '\0';
-
-   for (int i = (in.get(ch), 0); (ch != '\n') && (!in.fail()); ++i, in.get(ch)) {
-     if (i == ( getDate.length() ))
-       getDate.resetCapacity(getDate.length() * 2);
-     getDate = getDate + ch;
-   }
-
-   return getDate;
- }

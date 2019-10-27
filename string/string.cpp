@@ -253,15 +253,14 @@ std::vector<String> String::split(char sep) const {
 // Milestone 4
 //
 int String::intConvert() {
-  int start = length() - 1;
+  int start = 0;
   if (str[start] == '-')
     return 0;
 
-  int result = 0, tens = 1;
+  int result = 0;
 
-  for (int i = start; i >= 0; --i) {
-    result = result + (int(str[i] - int('0')) * tens);
-    tens *= 10;
+  for (int i = start; i < length()-1; ++i) {
+    result = result * 10 + (int(str[i] - int('0')));
   }
   return result;
 }

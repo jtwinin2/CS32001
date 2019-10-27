@@ -53,7 +53,6 @@ public:
     friend  std::istream& operator>>(std::istream&, String&);
   
     int     intConvert    ();                                  // Converts a String to integers - Milestone 4
-    String  getline       (std::istream&);                    // Milestone 4
 
 private:
 
@@ -74,6 +73,6 @@ bool    operator<       (char,          const String&);
 bool    operator<=      (const String&, const String&);
 bool    operator!=      (const String&, const String&);
 bool    operator>=      (const String&, const String&);
-bool    operator>       (const String&, const String&);
+bool    operator>       (const String&, const String&); 
 
 #endif
