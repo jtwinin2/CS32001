@@ -259,7 +259,7 @@ int String::intConvert() {
 
   int result = 0;
 
-  for (int i = start; i < length()-1; ++i) {
+  for (int i = start; i < length(); ++i) {
     result = result * 10 + (int(str[i] - int('0')));
   }
   return result;
