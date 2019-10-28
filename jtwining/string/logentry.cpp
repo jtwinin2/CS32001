@@ -23,7 +23,7 @@
 // ENSURES: LogEntry is placed into their respective valuse from  the input file
 //
 LogEntry::LogEntry(String s) {
-  std::cout << std::endl << s << std::endl;
+  std::cout << std::endl << s << "||| " <<std::endl;
     std::vector<String> vec = s.split(' ');
     std::cout << vec[9] << std::endl;
     if (vec.size() == 10){
@@ -80,22 +80,22 @@ std::vector<LogEntry> parse(std::istream& in) {
   char temp;
   while (!in.eof()){
     String x;
-    in >> temp;
+    in.get(temp);
     while( temp != '\n'){
       while ( !in.eof()){
         x = x + temp;
         in.get(temp);
       }
     }
-    result.push_back(x);
+    result.push_back(x);  
   }
   return result;
 }
 
 
 /////////////////////////////////////////////////////////
-// REQUIRES:A file to already be passed in and log to have been given values
-// ENSURES: outputs LogEntry in an organized list
+// REQUIRES: A file to already be passed in and log to have been given values
+// ENSURES: Outputs LogEntry in an organized list
 //
 std::ostream& operator<< ( std::ostream& out, const LogEntry& log) {
   out << std::endl;
