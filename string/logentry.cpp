@@ -23,7 +23,7 @@
 // ENSURES: LogEntry is placed into their respective valuse from  the input file
 //
 LogEntry::LogEntry(String s) {
-  std::cout << std::endl << s << "||| " <<std::endl;
+  //  std::cout << std::endl << s << "||| " <<std::endl;
     std::vector<String> vec = s.split(' ');
     //    std::cout << vec[9] << std::endl;
     if (vec.size() == 10){
