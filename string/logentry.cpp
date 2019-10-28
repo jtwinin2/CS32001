@@ -25,7 +25,7 @@
 LogEntry::LogEntry(String s) {
   std::cout << std::endl << s << "||| " <<std::endl;
     std::vector<String> vec = s.split(' ');
-    std::cout << vec[9] << std::endl;
+    //    std::cout << vec[9] << std::endl;
     if (vec.size() == 10){
       host = vec[0];  // Host is Placed in the first vector
                       // vec[1] + vec[2] are both just a -
@@ -59,7 +59,7 @@ LogEntry::LogEntry(String s) {
 	number_of_bytes = 0;
       }
       number_of_bytes = vec[9].intConvert();
-      std::cout << vec[9].intConvert() << std::endl;
+      //      std::cout << vec[9].intConvert() << std::endl;
     }
     else {                        // if vec.size != 10
 	host = String();
@@ -82,12 +82,11 @@ std::vector<LogEntry> parse(std::istream& in) {
     String x;
     in.get(temp);
     while( temp != '\n'){
-      while ( !in.eof()){
-        x = x + temp;
-        in.get(temp);
-      }
+	x = x + temp;
+	in.get(temp);       
     }
-    result.push_back(x);  
+    if(in.eof()) break;
+    result.push_back(x);
   }
   return result;
 }
