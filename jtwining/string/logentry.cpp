@@ -101,7 +101,7 @@ std::ostream& operator<< ( std::ostream& out, const LogEntry& log) {
   out << "Host: " << log.host << std::endl;
   out << std::endl;
 
-  out << "DATE :" << std::endl;
+  out << "DATE : " <<  log.date.getday() << "/" << log.date.getmonth() << "/" << log.date.getyear() << std::endl;
   out << "Month: " << log.date.getmonth() << std::endl;
   out << "Day: " << log.date.getday() << std::endl;
   out << "Year: " << log.date.getyear() << std::endl;
